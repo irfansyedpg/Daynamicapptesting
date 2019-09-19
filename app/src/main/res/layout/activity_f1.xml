@@ -31,6 +31,7 @@
 
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
+                <LinearLayout style="@style/linearlayout_view_wt_bound">
 
                     <TextView
                         style="@style/i_textview"

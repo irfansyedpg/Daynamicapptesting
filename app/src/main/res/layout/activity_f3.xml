@@ -8,18 +8,18 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.src_2.ui.form1.F1SectionAActivity" />
+            type="edu.aku.hassannaqvi.src_2.ui.F3Activity" />
     </data>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.form1.F1SectionAActivity">
+        tools:context=".ui.form1.F3Activity">
 
 
         <LinearLayout
-            android:id="@+id/fldGrpSectionF1A"
+            android:id="@+id/fldGrpF3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layoutDirection="rtl"
