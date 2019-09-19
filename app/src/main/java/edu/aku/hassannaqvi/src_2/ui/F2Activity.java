@@ -13,17 +13,18 @@ import edu.aku.hassannaqvi.src_2.R;
 import edu.aku.hassannaqvi.src_2.core.DatabaseHelper;
 import edu.aku.hassannaqvi.src_2.core.MainApp;
 import edu.aku.hassannaqvi.src_2.databinding.ActivityF1Binding;
+import edu.aku.hassannaqvi.src_2.databinding.ActivityF2Binding;
 import edu.aku.hassannaqvi.src_2.validation.ValidatorClass;
 
 public class F2Activity extends AppCompatActivity {
 
-    ActivityF1Binding bi;
+    ActivityF2Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_f1);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_f2);
         bi.setCallback(this);
 
 //        setTitle(R.string.f9aHeading);
@@ -71,27 +72,30 @@ public class F2Activity extends AppCompatActivity {
 
 
         JSONObject f1 = new JSONObject();
-        f1.put("f1wgq1a", bi.f1wgq1a.isChecked() ? "1" : "0");
-        f1.put("f1wgq1b", bi.f1wgq1b.isChecked() ? "2" : "0");
-        f1.put("f1wgq1c", bi.f1wgq1c.isChecked() ? "3" : "0");
-        f1.put("f1wgq1d", bi.f1wgq1d.isChecked() ? "4" : "0");
-        f1.put("f1wgq1e", bi.f1wgq1e.isChecked() ? "5" : "0");
-        f1.put("f1wgq1f", bi.f1wgq1f.isChecked() ? "6" : "0");
-        f1.put("f1wgq1g", bi.f1wgq1g.isChecked() ? "7" : "0");
-        f1.put("f1wgq1h", bi.f1wgq1h.isChecked() ? "8" : "0");
-        f1.put("f1wgq1i", bi.f1wgq1i.isChecked() ? "9" : "0");
-        f1.put("f1wgq1j", bi.f1wgq1j.isChecked() ? "10" : "0");
-        f1.put("f1wgq1k", bi.f1wgq1k.isChecked() ? "11" : "0");
-        f1.put("f1wgq2", bi.f1wgq2.getText().toString());
-        f1.put("f1wgq3", bi.f1wgq3.getText().toString());
-        f1.put("f1wgq4", bi.f1wgq4.getText().toString());
-        f1.put("f1wgq5", bi.f1wgq5.getText().toString());
+        f1.put("f2wgq1a", bi.f2wgq1a.isChecked() ? "1" : "0");
+        f1.put("f2wgq1b", bi.f2wgq1b.isChecked() ? "2" : "0");
+        f1.put("f2wgq1c", bi.f2wgq1c.isChecked() ? "3" : "0");
+        f1.put("f2wgq1d", bi.f2wgq1d.isChecked() ? "4" : "0");
+        f1.put("f2wgq1e", bi.f2wgq1e.isChecked() ? "5" : "0");
+        f1.put("f2wgq1f", bi.f2wgq1f.isChecked() ? "6" : "0");
+        f1.put("f2wgq1g", bi.f2wgq1g.isChecked() ? "7" : "0");
+        f1.put("f2wgq1h", bi.f2wgq1h.isChecked() ? "8" : "0");
+        f1.put("f2wgq1i", bi.f2wgq1i.isChecked() ? "9" : "0");
+        f1.put("f2wgq1j", bi.f2wgq1j.isChecked() ? "10" : "0");
+        f1.put("f2wgq1k", bi.f2wgq1k.isChecked() ? "11" : "0");
+
+        f1.put("f2wgq2", bi.f2wgq2.getText().toString());
+        f1.put("f2wgq3", bi.f2wgq3.getText().toString());
+        f1.put("f2wgq4", bi.f2wgq4.getText().toString());
 
 
-        f1.put("f1wgq6", bi.f1wgq6a.isChecked() ? "1" : bi.f1wgq6b.isChecked() ? "2" : bi.f1wgq6c.isChecked() ? "3"
-                : bi.f1wgq696.isChecked() ? "96" : "0");
-        f1.put("f1wgq696x", bi.f1wgq696x.getText().toString());
-        f1.put("f1wgq7", bi.f1wgq7.getText().toString());
+        f1.put("f2wgq5", bi.f2wgq5a.isChecked() ? "1" : bi.f2wgq5b.isChecked() ? "2" : bi.f2wgq5c.isChecked() ? "3"
+                : bi.f2wgq596.isChecked() ? "96" : "0");
+        
+        f1.put("f2wgq596x", bi.f2wgq596x.getText().toString());
+
+        f1.put("f2wgq6", bi.f2wgq6.getText().toString());
+
 
         MainApp.fc.setF1(String.valueOf(f1));
 
@@ -99,7 +103,7 @@ public class F2Activity extends AppCompatActivity {
 
     private boolean formValidation() {
 
-        return ValidatorClass.EmptyCheckingContainer(this, bi.fldGrpF1);
+        return ValidatorClass.EmptyCheckingContainer(this, bi.fldGrpF2);
     }
 
     public void BtnEnd() {
