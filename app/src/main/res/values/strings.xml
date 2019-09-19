@@ -891,7 +891,7 @@
     <!-- KMC Form 3 -->
 
 
-    <string name="wgq1"> سيشن ۾ ڪهڙن موضوعن تي ڳالهه ٻولهه ٿي؟ ( هڪ کان وڌيڪ جواب ٿي سگھن ٿا) </string>
+    <string name="f3wgq1"> سيشن ۾ ڪهڙن موضوعن تي ڳالهه ٻولهه ٿي؟ ( هڪ کان وڌيڪ جواب ٿي سگھن ٿا) </string>
     <string name="f3wgq1a"> اي اين سي </string>
     <string name="f3wgq1b"> پي اين سي </string>
     <string name="f3wgq1c"> دن/ ناڙي جي سار سنڀال </string>
@@ -903,7 +903,9 @@
     <string name="f3wgq1i"> ماءُ جو کير ۽ صرف ۽ صرف ماءُ جو کير </string>
     <string name="f3wgq1j"> صحت مرڪز تي ويم جو ٿيڻ </string>
     <string name="f3wgq1k"> اميونيزيشن </string>
+
     <string name="f3wgq2"> سيشن جو ڪل دورانيا / وقت ڪيترو رهيو؟ منٽ </string>
+
     <string name="f3wgq3"> سيشن ۾ ڪهڙو ڪهڙو آ اي سي مٽيريل استعمال ڪيو ويو؟ (هڪ کان وڌيڪ جواب ٿي سگھن ٿا) </string>
     <string name="f3wgq3a"> ڪي ايم سي وڊيو </string>
     <string name="f3wgq3b"> ڪي ايم سي فلپ چارٽ </string>
