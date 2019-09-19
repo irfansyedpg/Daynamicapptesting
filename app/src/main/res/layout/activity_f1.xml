@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <data>
@@ -175,11 +175,21 @@
                         style="@style/i_textview"
                         android:text="@string/f1wgq5" />
 
-                    <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
+
+
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/f1wgq5"
                         style="@style/textInput"
+                        android:inputType="number"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:hint="@string/f1wgq5"
+                        android:maxLength="2"
+                        app:maxValue="1"
+                        app:minValue="60"
+                        app:type="range" />
+
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
