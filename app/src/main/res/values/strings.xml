@@ -861,6 +861,60 @@
     <!-- KMC  F2-->
 
 
+    <string name="f1wgq1"> سيشن ۾ ڪهڙن موضوعن تي ڳالهه ٻولهه ٿي؟ ( هڪ کان وڌيڪ جواب ٿي سگھن ٿا) </string>
+    <string name="f1wgq1a"> اي اين سي </string>
+    <string name="f1wgq1b"> پي اين سي </string>
+    <string name="f1wgq1c"> دن/ ناڙي جي سار سنڀال </string>
+    <string name="f1wgq1d"> گھٽ وزن واري ٻار جي سارسنڀال </string>
+    <string name="f1wgq1e"> ڪي ايم سي ۽ ٻار جو وزن </string>
+    <string name="f1wgq1f"> ڪي ايم سي گرمائش ۽ ان جي اهميت </string>
+    <string name="f1wgq1g"> ڪي ايم سي ۽ جراسيمن کان بچاءُ </string>
+    <string name="f1wgq1h"> ڪي ايم سي ۽ ٻار ۽ ماءُ جي وچ ۾ محبت </string>
+    <string name="f1wgq1i"> ماءُ جو کير ۽ صرف ۽ صرف ماءُ جو کير </string>
+    <string name="f1wgq1j"> صحت مرڪز تي ويم جو ٿيڻ </string>
+    <string name="f1wgq1k"> اميونيزيشن </string>
+    <string name="f1wgq2"> سيشن ۾ شرڪت ڪندڙ جو تعداد ڪيترو آهي؟ تعداد </string>
+    <string name="f1wgq3"> ڳورهاري عورتن جو تعداد؟ تعداد </string>
+    <string name="f1wgq4"> شادي شده ۽ ٻار ڄڻڻ جي اهليت رکڻ واري عورتن جو تعداد؟ (ڳورهاري عورتن کان علاوه) </string>
+    <string name="f1wgq5"> سيشن جو ڪل دورانيا / وقت ڪيترو رهيو؟ منٽ </string>
+    <string name="f1wgq6"> سيشن ۾ ڪهڙو ڪهڙو آ اي سي مٽيريل استعمال ڪيو ويو؟ (هڪ کان وڌيڪ جواب ٿي سگھن ٿا) </string>
+    <string name="f1wgq6a"> ڪي ايم سي وڊيو </string>
+    <string name="f1wgq6b"> ڪي ايم سي فلپ چارٽ </string>
+    <string name="f1wgq6c"> ڪي ايم سي تصويرون </string>
+    <string name="f1wgq696"> ٻيو ڪجھ </string>
+    <string name="f1wgq696x"> ٻيو ڪجھ </string>
+    <string name="f1wgq7"> هن سيشن جي خاص ڳالهه ڪهڙي هئي ؟ مختصر وضاحت لکو </string>
+    <string name="f1wgq8"> مهرباني ڪري سيشن جي تصوير وٺو </string>
+
+
+
+    <!-- KMC Form 3 -->
+
+
+    <string name="wgq1"> سيشن ۾ ڪهڙن موضوعن تي ڳالهه ٻولهه ٿي؟ ( هڪ کان وڌيڪ جواب ٿي سگھن ٿا) </string>
+    <string name="f3wgq1a"> اي اين سي </string>
+    <string name="f3wgq1b"> پي اين سي </string>
+    <string name="f3wgq1c"> دن/ ناڙي جي سار سنڀال </string>
+    <string name="f3wgq1d"> گھٽ وزن واري ٻار جي سارسنڀال </string>
+    <string name="f3wgq1e"> ڪي ايم سي ۽ ٻار جو وزن </string>
+    <string name="f3wgq1f"> ڪي ايم سي گرمائش ۽ ان جي اهميت </string>
+    <string name="f3wgq1g"> ڪي ايم سي ۽ جراسيمن کان بچاءُ </string>
+    <string name="f3wgq1h"> ڪي ايم سي ۽ ٻار ۽ ماءُ جي وچ ۾ محبت </string>
+    <string name="f3wgq1i"> ماءُ جو کير ۽ صرف ۽ صرف ماءُ جو کير </string>
+    <string name="f3wgq1j"> صحت مرڪز تي ويم جو ٿيڻ </string>
+    <string name="f3wgq1k"> اميونيزيشن </string>
+    <string name="f3wgq2"> سيشن جو ڪل دورانيا / وقت ڪيترو رهيو؟ منٽ </string>
+    <string name="f3wgq3"> سيشن ۾ ڪهڙو ڪهڙو آ اي سي مٽيريل استعمال ڪيو ويو؟ (هڪ کان وڌيڪ جواب ٿي سگھن ٿا) </string>
+    <string name="f3wgq3a"> ڪي ايم سي وڊيو </string>
+    <string name="f3wgq3b"> ڪي ايم سي فلپ چارٽ </string>
+    <string name="f3wgq3c"> ڪي ايم سي تصويرون </string>
+    <string name="f3wgq396"> ٻيو ڪجھ </string>
+    <string name="f3wgq396x"> ٻيو ڪجھ </string>
+    <string name="f3wgq4"> هن ڳورهاري عورت سان هي ڪهڙو نمبر سيشن آهي؟ </string>
+    <string name="f3wgq4a"> پهريون </string>
+    <string name="f3wgq4b"> ٻيون </string>
+    <string name="f3wgq4c"> ٽيون </string>
+
 
 
     <!-- KMC -->

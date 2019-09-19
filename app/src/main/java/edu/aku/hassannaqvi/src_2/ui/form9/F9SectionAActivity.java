@@ -25,7 +25,7 @@ public class F9SectionAActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_f9_section_a);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_f1);
         bi.setCallback(this);
 
         setTitle(R.string.f9aHeading);
