@@ -825,9 +825,41 @@
     <string name="f3a34"> جيڪڏهن نه ته وجه بيان ڪريو </string>
 
 
+    <!-- KMC Info-->
+
     <string name="infotak"> تعلقي جو ڪوڊ </string>
     <string name="infouc"> يونين ڪائونسل جو ڪوڊ </string>
     <string name="infovil"> ڳوٺ/ وارڊ جو ڪوڊ </string>
+
+    <!-- KMC F2-->
+
+    <string name="f2wgq1"> سيشن ۾ ڪهڙن موضوعن تي ڳالهه ٻولهه ٿي؟ ( هڪ کان وڌيڪ جواب ٿي سگھن ٿا) </string>
+    <string name="f2wgq1a"> اي اين سي </string>
+    <string name="f2wgq1b"> پي اين سي </string>
+    <string name="f2wgq1c"> دن/ ناڙي جي سار سنڀال </string>
+    <string name="f2wgq1d"> گھٽ وزن واري ٻار جي سارسنڀال </string>
+    <string name="f2wgq1e"> ڪي ايم سي ۽ ٻار جو وزن </string>
+    <string name="f2wgq1f"> ڪي ايم سي گرمائش ۽ ان جي اهميت </string>
+    <string name="f2wgq1g"> ڪي ايم سي ۽ جراسيمن کان بچاءُ </string>
+    <string name="f2wgq1h"> ڪي ايم سي ۽ ٻار ۽ ماءُ جي وچ ۾ محبت </string>
+    <string name="f2wgq1i"> ماءُ جو کير ۽ صرف ۽ صرف ماءُ جو کير </string>
+    <string name="f2wgq1j"> صحت مرڪز تي ويم جو ٿيڻ </string>
+    <string name="f2wgq1k"> اميونيزيشن </string>
+    <string name="f2wgq2"> سيشن ۾ شرڪت ڪندڙ جو تعداد ڪيترو آهي؟ تعداد </string>
+    <string name="f2wgq3"> سيشن ۾ گھڻا مرد حضرات موجود هئا؟ تعداد </string>
+    <string name="f2wgq4"> سيشن جو ڪل دورانيا / وقت ڪيترو رهيو؟ منٽ </string>
+    <string name="f2wgq5"> سيشن ۾ ڪهڙو ڪهڙو آ اي سي مٽيريل استعمال ڪيو ويو؟ (هڪ کان وڌيڪ جواب ٿي سگھن ٿا) </string>
+    <string name="f2wgq5a"> ڪي ايم سي وڊيو </string>
+    <string name="f2wgq5b"> ڪي ايم سي فلپ چارٽ </string>
+    <string name="f2wgq5c"> ڪي ايم سي تصويرون </string>
+    <string name="f2wgq596"> ٻيو ڪجھ </string>
+    <string name="f2wgq596x"> ٻيو ڪجھ </string>
+    <string name="f2wgq6"> هن سيشن جي خاص ڳالهه ڪهڙي هئي ؟ مختصر وضاحت لکو </string>
+    <string name="f2wgq7"> مهرباني ڪري سيشن جي تصوير وٺو </string>
+
+
+    <!-- KMC  F2-->
+
 
 
 
