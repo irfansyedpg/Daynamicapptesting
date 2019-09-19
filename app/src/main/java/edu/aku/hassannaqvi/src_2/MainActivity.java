@@ -15,8 +15,8 @@ import edu.aku.hassannaqvi.src_2.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.src_2.core.DatabaseHelper;
 import edu.aku.hassannaqvi.src_2.core.MainApp;
 import edu.aku.hassannaqvi.src_2.databinding.ActivityMainBinding;
+import edu.aku.hassannaqvi.src_2.ui.InfoActivity;
 import edu.aku.hassannaqvi.src_2.ui.SyncActivity;
-import edu.aku.hassannaqvi.src_2.ui.form1.F1SectionAActivity;
 import edu.aku.hassannaqvi.src_2.util.Util;
 
 public class MainActivity extends AppCompatActivity {
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openForm() {
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
-            startActivity(new Intent(MainActivity.this, F1SectionAActivity.class));
+            startActivity(new Intent(MainActivity.this, InfoActivity.class));
         } else {
             Util.showTagDialog(this);
         }

@@ -17,6 +17,8 @@ import java.net.URL;
 import java.util.List;
 
 import edu.aku.hassannaqvi.src_2.adapter.SyncListAdapter;
+import edu.aku.hassannaqvi.src_2.contracts.TalukasContract;
+import edu.aku.hassannaqvi.src_2.contracts.UCsContract;
 import edu.aku.hassannaqvi.src_2.contracts.UsersContract;
 import edu.aku.hassannaqvi.src_2.contracts.VillagesContract;
 import edu.aku.hassannaqvi.src_2.core.DatabaseHelper;
@@ -87,6 +89,12 @@ public class GetAllData extends AsyncTask<String, String, String> {
             case "villages":
                 position = 1;
                 break;
+            case "ucs":
+                position = 2;
+                break;
+            case "taluka":
+                position = 3;
+                break;
 
         }
         list.get(position).setstatus("Syncing");
@@ -110,6 +118,14 @@ public class GetAllData extends AsyncTask<String, String, String> {
                 case "villages":
                     url = new URL(MainApp._HOST_URL + VillagesContract.singleVillage._URI);
                     position = 1;
+                    break;
+                case "ucs":
+                    url = new URL(MainApp._HOST_URL + UCsContract.UCsTable._URI);
+                    position = 2;
+                    break;
+                case "taluka":
+                    url = new URL(MainApp._HOST_URL + TalukasContract.singleTaluka._URI);
+                    position = 3;
                     break;
 
             }
@@ -197,6 +213,14 @@ public class GetAllData extends AsyncTask<String, String, String> {
                         case "villages":
                             db.syncVillages(jsonArray);
                             position = 1;
+                            break;
+                        case "ucs":
+                            db.syncUcs(jsonArray);
+                            position = 2;
+                            break;
+                        case "taluka":
+                            db.syncTaluka(jsonArray);
+                            position = 3;
                             break;
 
                     }

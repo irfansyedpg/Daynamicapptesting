@@ -66,12 +66,12 @@ public class MainApp extends Application {
     public static final long MILLISECONDS_IN_2Years = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_2_YEAR;
     //    public static String _IP2 = "58.65.211.13"; // Test PHP server
     //    public static String _IP = "43.245.131.159"; // Test PHP server
-    public static String _IP = "f38158"; // Test PHP server
+    public static String _IP = "43.245.131.159"; // Test PHP server
 //    public static String _IP = "43.245.131.159"; // Test PHP server
     //public static String _IP = "vcoe1.aku.edu"; // Live PHP server
 
     public static boolean isAttitudeCheck = false;
-    public static String _HOST_URL = "http://" + MainApp._IP + "/src2019/api/";
+    public static String _HOST_URL = "http://" + MainApp._IP + "/kmc/api/";
     public static String _UPDATE_URL = "http://" + MainApp._IP + "/casi/app/";
     public static String deviceId;
 
@@ -80,6 +80,7 @@ public class MainApp extends Application {
     public static FamilyMembersContract fmc;
     public static String IMEI;
     public static String userName = "0000";
+    public static String formType = "";
     public static int versionCode;
     public static String versionName;
     public static Boolean IsHead;

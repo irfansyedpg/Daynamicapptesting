@@ -37,10 +37,10 @@
             android:name=".ui.LoginActivity"
             android:theme="@style/AppTheme1"></activity>
         <activity android:name=".ui.SyncActivity" />
-        <activity android:name=".ui.form1.F1SectionAActivity" />
+        <activity android:name=".ui.InfoActivity" />
 
         <activity android:name=".ui.form9.F9SectionBActivity" />
-        <activity android:name=".ui.form9.F9SectionAActivity" />
+        <activity android:name=".ui.F1Activity" />
 
         <activity android:name=".core.AndroidDatabaseManager" />
         <activity android:name=".MainActivity">

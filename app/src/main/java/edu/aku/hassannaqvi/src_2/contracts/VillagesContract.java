@@ -38,7 +38,7 @@ public class VillagesContract {
     public VillagesContract hydrate(Cursor cursor) {
         this.villageCode = cursor.getString(cursor.getColumnIndex(singleVillage.COLUMN_VILLAGE_CODE));
         this.villageName = cursor.getString(cursor.getColumnIndex(singleVillage.COLUMN_VILLAGE_NAME));
-//        this.districtCode = cursor.getString(cursor.getColumnIndex(singleVillage.COLUMN_DISTRICT_CODE));
+//        this.districtCode = cursor.getString(cursor.getColumnIndex(singleVillage.COLUMN_TALUKA_CODE));
 //        this.ucCode = cursor.getString(cursor.getColumnIndex(singleVillage.COLUMN_UC_CODE));
 
         return this;

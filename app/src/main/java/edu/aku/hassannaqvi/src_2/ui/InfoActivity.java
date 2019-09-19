@@ -1,14 +1,10 @@
-package edu.aku.hassannaqvi.src_2.ui.form1;
+package edu.aku.hassannaqvi.src_2.ui;
 
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.InputType;
-import android.text.TextWatcher;
 import android.text.format.DateFormat;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -25,16 +21,16 @@ import edu.aku.hassannaqvi.src_2.contracts.UCsContract;
 import edu.aku.hassannaqvi.src_2.contracts.VillagesContract;
 import edu.aku.hassannaqvi.src_2.core.DatabaseHelper;
 import edu.aku.hassannaqvi.src_2.core.MainApp;
-import edu.aku.hassannaqvi.src_2.databinding.ActivityF1SectionABinding;
+import edu.aku.hassannaqvi.src_2.databinding.ActivityInfoBinding;
 import edu.aku.hassannaqvi.src_2.util.Util;
 import edu.aku.hassannaqvi.src_2.validation.ValidatorClass;
 
 import static edu.aku.hassannaqvi.src_2.core.MainApp.fc;
 
-public class F1SectionAActivity extends AppCompatActivity {
+public class InfoActivity extends AppCompatActivity {
 
 
-    ActivityF1SectionABinding bi;
+    ActivityInfoBinding bi;
     Collection<UCsContract> ucsList;
     ArrayList<String> ucsName;
     HashMap<String, String> ucsMap;
@@ -50,58 +46,58 @@ public class F1SectionAActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_f3);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_info);
         bi.setCallback(this);
 
 
-        setTitle(R.string.f1aHeading);
+//        setTitle(R.string.f1aHeading);
 
         setupViews();
     }
 
     private void setupViews() {
 
-        db = new DatabaseHelper(this);
-        villagesMap = new HashMap<>();
-        villagesNames = new ArrayList<>();
-        villagesNames.add("Select Village Name-");
-        bi.f1a01.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                if (!s.toString().equals("")) {
-                    if (s.toString().length() == 2) {
-                        villagesList = db.getVillages(bi.f1a01.getText().toString());
-                        for (VillagesContract hf : villagesList) {
-                            villagesNames.add(hf.getVillageName());
-                            villagesMap.put(hf.getVillageName(), hf.getVillageCode());
-                        }
-
-                        bi.f1a02.setAdapter(new ArrayAdapter<>(F1SectionAActivity.this, android.R.layout.simple_spinner_dropdown_item, villagesNames));
-
-                    }
-                } else {
-                    if (villagesList.size() != 0) {
-                        villagesMap.clear();
-                        villagesNames.clear();
-                        villagesList.clear();
-                    }
-
-
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+//        db = new DatabaseHelper(this);
+//        villagesMap = new HashMap<>();
+//        villagesNames = new ArrayList<>();
+//        villagesNames.add("Select Village Name-");
+//        bi.f1a01.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//                if (!s.toString().equals("")) {
+//                    if (s.toString().length() == 2) {
+//                        villagesList = db.getVillages(bi.f1a01.getText().toString());
+//                        for (VillagesContract hf : villagesList) {
+//                            villagesNames.add(hf.getVillageName());
+//                            villagesMap.put(hf.getVillageName(), hf.getVillageCode());
+//                        }
+//
+//                        bi.f1a02.setAdapter(new ArrayAdapter<>(InfoActivity.this, android.R.layout.simple_spinner_dropdown_item, villagesNames));
+//
+//                    }
+//                } else {
+//                    if (villagesList.size() != 0) {
+//                        villagesMap.clear();
+//                        villagesNames.clear();
+//                        villagesList.clear();
+//                    }
+//
+//
+//                }
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
 
 //        ucsList = db.getUCsList();
 //        ucsName = new ArrayList<>();
@@ -132,7 +128,7 @@ public class F1SectionAActivity extends AppCompatActivity {
 //                        villagesMap.put(hf.getVillageName(), hf.getVillageCode());
 //                    }
 //
-//                    bi.f1a02.setAdapter(new ArrayAdapter<>(F1SectionAActivity.this, android.R.layout.simple_spinner_dropdown_item, villagesNames));
+//                    bi.f1a02.setAdapter(new ArrayAdapter<>(InfoActivity.this, android.R.layout.simple_spinner_dropdown_item, villagesNames));
 //
 //                }
 //
@@ -144,37 +140,6 @@ public class F1SectionAActivity extends AppCompatActivity {
 //            }
 //        });
 
-        bi.f1a04.addTextChangedListener(new
-
-                                                TextWatcher() {
-                                                    @Override
-                                                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-//                bi.f1a04.setInputType(InputType.TYPE_CLASS_NUMBER);
-                                                        length = s.toString().length();
-                                                    }
-
-                                                    @Override
-                                                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                                                        if (!bi.f1a04.getText().toString().isEmpty() && bi.f1a04.getText().toString().length() == 3) {
-                                                            if (bi.f1a04.getText().toString().substring(0, 3).matches("[0-9]+")) {
-                                                                if (length < 5) {
-                                                                    bi.f1a04.setText(bi.f1a04.getText().toString() + "-");
-                                                                    bi.f1a04.setSelection(bi.f1a04.getText().length());
-                                                                    bi.f1a04.setInputType(InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS);
-
-                                                                }
-
-                                                            }
-                                                        }
-                                                    }
-
-                                                    @Override
-                                                    public void afterTextChanged(Editable s) {
-
-                                                    }
-                                                });
 
     }
 
@@ -219,20 +184,11 @@ public class F1SectionAActivity extends AppCompatActivity {
         fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
         fc.setDeviceID(MainApp.deviceId);
         fc.setUser(MainApp.userName);
-        fc.setUc(bi.f1a01.getText().toString());
-        fc.setVillage(villagesMap.get(bi.f1a02.getSelectedItem().toString()));
+        fc.setFormType(MainApp.formType);
+        fc.setUc(ucsMap.get(bi.infouc.getSelectedItem().toString()));
+        fc.setVillage(villagesMap.get(bi.infovil.getSelectedItem().toString()));
         fc.setAppversion(MainApp.versionName + "." + MainApp.versionCode);
-        fc.setHhNo(bi.f1a04.getText().toString());
         JSONObject f1 = new JSONObject();
-        f1.put("f1a05", bi.f1a05a.isChecked() ? "1"
-                : bi.f1a05b.isChecked() ? "2"
-                : bi.f1a05c.isChecked() ? "3"
-                : bi.f1a05d.isChecked() ? "4"
-                : bi.f1a05e.isChecked() ? "5"
-                : bi.f1a05f.isChecked() ? "6"
-                : bi.f1a0596.isChecked() ? "96"
-                : "0");
-        f1.put("f1a0596x", bi.f1a0596x.getText().toString());
         Util.setGPS(this);
 
         fc.setF1(String.valueOf(f1));
