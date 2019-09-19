@@ -30,7 +30,6 @@ import java.util.List;
 import edu.aku.hassannaqvi.kmc_screening.R;
 import edu.aku.hassannaqvi.kmc_screening.adapter.SyncListAdapter;
 import edu.aku.hassannaqvi.kmc_screening.adapter.Upload_list_adapter;
-import edu.aku.hassannaqvi.kmc_screening.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.kmc_screening.contracts.FormsContract;
 import edu.aku.hassannaqvi.kmc_screening.core.DatabaseHelper;
 import edu.aku.hassannaqvi.kmc_screening.core.MainApp;
@@ -139,13 +138,6 @@ public class SyncActivity extends AppCompatActivity {
 
             DatabaseHelper db = new DatabaseHelper(this);
 
-//            new SyncDevice(this, false).execute();
-////            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-//            if (uploadlistActivityCreated) {
-//                uploadmodel = new SyncModel();
-//                uploadmodel.setstatusID(0);
-//                uploadlist.add(uploadmodel);
-//            }
             if (uploadlistActivityCreated) {
                 uploadmodel = new SyncModel();
                 uploadmodel.setstatusID(0);
@@ -159,19 +151,19 @@ public class SyncActivity extends AppCompatActivity {
                     MainApp._HOST_URL + FormsContract.FormsTable._URL,
                     db.getUnsyncedForms(), 0, uploadListAdapter, uploadlist
             ).execute();
-            if (uploadlistActivityCreated) {
-                uploadmodel = new SyncModel();
-                uploadmodel.setstatusID(0);
-                uploadlist.add(uploadmodel);
-            }
-            new SyncAllData(
-                    this,
-                    "Family Members",
-                    "updateSyncedFamilyMembers",
-                    FormsContract.class,
-                    MainApp._HOST_URL + FamilyMembersContract.familyMembers._URL,
-                    db.getUnsyncedFamilyMember(), 1, uploadListAdapter, uploadlist
-            ).execute();
+//            if (uploadlistActivityCreated) {
+//                uploadmodel = new SyncModel();
+//                uploadmodel.setstatusID(0);
+//                uploadlist.add(uploadmodel);
+//            }
+//            new SyncAllData(
+//                    this,
+//                    "Family Members",
+//                    "updateSyncedFamilyMembers",
+//                    FormsContract.class,
+//                    MainApp._HOST_URL + FamilyMembersContract.familyMembers._URL,
+//                    db.getUnsyncedFamilyMember(), 1, uploadListAdapter, uploadlist
+//            ).execute();
             uploadlistActivityCreated = false;
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
