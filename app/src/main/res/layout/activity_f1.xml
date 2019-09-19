@@ -186,8 +186,8 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/f1wgq5"
                         android:maxLength="2"
-                        app:maxValue="1"
-                        app:minValue="60"
+                        app:maxValue="60"
+                        app:minValue="1"
                         app:type="range" />
 
                 </LinearLayout>
