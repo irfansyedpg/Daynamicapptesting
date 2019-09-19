@@ -7,7 +7,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.src_2.MainActivity" />
+            type="edu.aku.hassannaqvi.kmc_screening.MainActivity" />
     </data>
 
     <LinearLayout
@@ -44,17 +44,6 @@
                 android:paddingTop="50dp"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin">
-
-                <!--                <TextView-->
-                <!--                    android:id="@+id/lblheader"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="16dp"-->
-                <!--                    android:layout_marginBottom="8dp"-->
-                <!--                    android:background="@color/dullWhile"-->
-                <!--                    android:text="Message!!!"-->
-                <!--                    android:textColor="@color/colorPrimary"-->
-                <!--                    android:textStyle="bold" />-->
 
 
                 <TextView
@@ -117,55 +106,119 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-
-                    <LinearLayout
-                        android:id="@+id/layout1"
+                    <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:orientation="horizontal">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/cardview_compat_inset_shadow"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick='@{()->callback.openForm(1)}'>
 
-                        <android.support.v7.widget.CardView
-                            android:layout_width="0dp"
-                            android:layout_height="120dp"
-                            android:layout_margin="@dimen/cardview_compat_inset_shadow"
-                            android:layout_weight="1"
-                            android:clickable="true"
-                            android:foreground="?android:attr/selectableItemBackground"
-                            android:onClick='@{()->callback.openForm()}'>
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_margin="10dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:orientation="vertical">
 
 
-                                <ImageView
-                                    android:layout_width="?attr/actionBarSize"
-                                    android:layout_height="?attr/actionBarSize"
-                                    android:layout_centerVertical="true"
-                                    android:layout_toStartOf="@id/formText"
-                                    android:src="@drawable/form" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="Record Community Support Group"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/colorPrimaryDark" />
 
-                                <TextView
-                                    android:id="@+id/formText"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerInParent="true"
-                                    android:text="Open Form"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                    android:textColor="@color/colorPrimaryDark" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="(FOR WOMEN GROUP)"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="16sp" />
 
-                            </RelativeLayout>
+                        </LinearLayout>
 
-                        </android.support.v7.widget.CardView>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/cardview_compat_inset_shadow"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick='@{()->callback.openForm(2)}'>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:orientation="vertical">
 
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="Record Community Support Group"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/colorPrimaryDark" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="(FOR MEN GROUP)"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/cardview_compat_inset_shadow"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick='@{()->callback.openForm(3)}'>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="Record Individual Session"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/colorPrimaryDark" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="(FOR PW)"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -185,13 +238,13 @@
                         android:orientation="horizontal">
 
                         <android.support.v7.widget.CardView
-                            android:onClick='@{() -> callback.onSyncServer()}'
                             android:layout_width="0dp"
                             android:layout_height="120dp"
                             android:layout_margin="@dimen/cardview_compat_inset_shadow"
                             android:layout_weight="1"
                             android:clickable="true"
-                            android:foreground="?android:attr/selectableItemBackground">
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:onClick='@{() -> callback.onSyncServer()}'>
 
                             <RelativeLayout
                                 android:layout_width="match_parent"

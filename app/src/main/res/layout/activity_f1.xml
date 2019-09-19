@@ -9,7 +9,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.src_2.ui.F1Activity" />
+            type="edu.aku.hassannaqvi.kmc_screening.ui.F1Activity" />
     </data>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,8 +29,6 @@
             <!--f1wgq1-->
             <android.support.v7.widget.CardView style="@style/cardView">
 
-
-
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
 
                     <TextView
@@ -39,6 +37,7 @@
 
 
                     <LinearLayout
+                        android:tag="0"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">

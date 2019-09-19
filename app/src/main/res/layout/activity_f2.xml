@@ -9,7 +9,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.src_2.ui.F2Activity" />
+            type="edu.aku.hassannaqvi.kmc_screening.ui.F2Activity" />
     </data>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"

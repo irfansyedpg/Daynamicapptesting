@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SRC-2</string>
+ <string name="app_name">KMC Screening</string>
 
     <string name="yes"> ھا </string>
     <string name="no"> نہ </string>
@@ -18,7 +18,17 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
 
-    <string name="istatus">انٹروہو کا نتیجہ</string>
+ <!--    End Activity-->
+
+ <string name="endHeading"> انٽرويو جو نتيجو </string>
+ <string name="end01"> پورو ٿيو </string>
+ <string name="end02"> اڌ ۾ ڇڏيو </string>
+ <string name="end03"> انڪار ڪيو </string>
+ <string name="end04"> ٻن دورن کان پوء به ڪير به موجوده نه هو </string>
+ <string name="end05"> لڏي وئي </string>
+
+
+ <string name="istatus">انٹروہو کا نتیجہ</string>
     <string name="istatusa">مکمل</string>
     <string name="istatusb">نا مکمل</string>
     <string name="istatusc">انکار کردیا</string>

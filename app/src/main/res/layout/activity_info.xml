@@ -8,7 +8,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.src_2.ui.InfoActivity" />
+            type="edu.aku.hassannaqvi.kmc_screening.ui.InfoActivity" />
     </data>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,7 +26,7 @@
             android:orientation="vertical">
 
 
-            <!--f1a01-->
+            <!--infotak-->
             <android.support.v7.widget.CardView style="@style/cardView">
 
 

@@ -8,7 +8,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.src_2.ui.F3Activity" />
+            type="edu.aku.hassannaqvi.kmc_screening.ui.F3Activity" />
     </data>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
