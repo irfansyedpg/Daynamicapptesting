@@ -185,7 +185,7 @@ public class F1SectionAActivity extends AppCompatActivity {
                 SaveDraft();
                 if (UpdateDB()) {
                     finish();
-                    startActivity(new Intent(getApplicationContext(), F1SectionBActivity.class));
+                    //startActivity(new Intent(getApplicationContext(), F1SectionBActivity.class));
                 } else {
                     Toast.makeText(this, "Error in updating db!!", Toast.LENGTH_SHORT).show();
                 }
