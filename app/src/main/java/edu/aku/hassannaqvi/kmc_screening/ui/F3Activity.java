@@ -56,7 +56,7 @@ public class F3Activity extends AppCompatActivity {
         DatabaseHelper db = new DatabaseHelper(this);
 
         // 2. UPDATE FORM ROWID
-        int updcount = db.updatesF1();
+        int updcount = db.updatesF3();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
@@ -92,7 +92,7 @@ public class F3Activity extends AppCompatActivity {
 
         f1.put("f3wgq4", bi.f3wgq4a.isChecked() ? "1" : bi.f3wgq4b.isChecked() ? "2" : bi.f3wgq4c.isChecked() ? "3"
           : "0");
-        MainApp.fc.setF1(String.valueOf(f1));
+        MainApp.fc.setF3(String.valueOf(f1));
 
     }
 

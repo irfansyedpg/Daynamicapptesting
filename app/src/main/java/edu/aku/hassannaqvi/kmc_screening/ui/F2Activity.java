@@ -56,7 +56,7 @@ public class F2Activity extends AppCompatActivity {
         DatabaseHelper db = new DatabaseHelper(this);
 
         // 2. UPDATE FORM ROWID
-        int updcount = db.updatesF1();
+        int updcount = db.updatesF2();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
@@ -96,7 +96,7 @@ public class F2Activity extends AppCompatActivity {
         f1.put("f2wgq6", bi.f2wgq6.getText().toString());
 
 
-        MainApp.fc.setF1(String.valueOf(f1));
+        MainApp.fc.setF2(String.valueOf(f1));
 
     }
 
