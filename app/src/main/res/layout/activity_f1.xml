@@ -112,14 +112,19 @@
                         style="@style/i_textview"
                         android:text="@string/f1wgq2" />
 
-                    <EditText
+
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/f1wgq2"
                         style="@style/textInput"
+                        android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/number"
-                        android:inputType="number"
-                        android:maxLength="2" />
+                        android:hint="@string/f1wgq2"
+                        android:maxLength="2"
+                        app:maxValue="30"
+                        app:minValue="1"
+                        app:type="range" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -133,14 +138,18 @@
                         style="@style/i_textview"
                         android:text="@string/f1wgq3" />
 
-                    <EditText
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/f1wgq3"
                         style="@style/textInput"
+                        android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/number"
-                        android:inputType="number"
-                        android:maxLength="2" />
+                        android:hint="@string/f1wgq3"
+                        android:maxLength="2"
+                        app:maxValue="30"
+                        app:minValue="1"
+                        app:type="range" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -154,14 +163,20 @@
                         style="@style/i_textview"
                         android:text="@string/f1wgq4" />
 
-                    <EditText
+
+
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/f1wgq4"
                         style="@style/textInput"
+                        android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/number"
-                        android:inputType="number"
-                        android:maxLength="2" />
+                        android:hint="@string/f1wgq4"
+                        android:maxLength="2"
+                        app:maxValue="30"
+                        app:minValue="1"
+                        app:type="range" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -206,31 +221,36 @@
                         style="@style/i_textview"
                         android:text="@string/f1wgq6" />
 
-                    <RadioGroup
-                        android:id="@+id/f1wgq6"
-                        style="@style/radiogroup">
 
-                        <RadioButton
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:tag="0"
+
+                        >
+                        <CheckBox
                             android:id="@+id/f1wgq6a"
                             style="@style/radiobutton"
                             android:text="@string/f1wgq6a" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/f1wgq6b"
                             style="@style/radiobutton"
                             android:text="@string/f1wgq6b" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/f1wgq6c"
                             style="@style/radiobutton"
                             android:text="@string/f1wgq6c" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/f1wgq696"
                             style="@style/radiobutton"
                             android:text="@string/other" />
 
-
+                    </LinearLayout>
                         <EditText
                             android:id="@+id/f1wgq696x"
                             style="@style/textInput"
@@ -242,7 +262,7 @@
                             android:visibility='@{f1wgq696.checked? View.VISIBLE : View.GONE}' />
 
 
-                    </RadioGroup>
+
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>

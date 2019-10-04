@@ -37,6 +37,34 @@ public class F1Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
+
+            int a=Integer.parseInt(bi.f1wgq2.getText().toString());
+            int b=Integer.parseInt(bi.f1wgq3.getText().toString());
+
+            int c=Integer.parseInt(bi.f1wgq4.getText().toString());
+
+            if(b>a)
+            {
+                bi.f1wgq2.setError("should be Greater then Q3");
+                bi.f1wgq2.requestFocus();
+                return;
+            }
+
+            if(c>a)
+            {
+                bi.f1wgq2.setError("should be Greater then Q4");
+                bi.f1wgq2.requestFocus();
+                return;
+            }
+
+            if(c+b>a)
+            {
+                bi.f1wgq2.setError("should be Greater then Sum of Q4 & Q3");
+                bi.f1wgq2.requestFocus();
+                return;
+            }
+
+
             try {
                 SaveDraft();
                 if (UpdateDB()) {
@@ -87,10 +115,12 @@ public class F1Activity extends AppCompatActivity {
         f1.put("f1wgq4", bi.f1wgq4.getText().toString());
         f1.put("f1wgq5", bi.f1wgq5.getText().toString());
 
-
-        f1.put("f1wgq6", bi.f1wgq6a.isChecked() ? "1" : bi.f1wgq6b.isChecked() ? "2" : bi.f1wgq6c.isChecked() ? "3"
-                : bi.f1wgq696.isChecked() ? "96" : "0");
+        f1.put("f1wgq6a", bi.f1wgq6a.isChecked() ? "1" : "0");
+        f1.put("f1wgq6b", bi.f1wgq6b.isChecked() ? "2" : "0");
+        f1.put("f1wgq6c", bi.f1wgq6c.isChecked() ? "3" : "0");
+        f1.put("f1wgq696", bi.f1wgq696.isChecked() ? "96" : "0");
         f1.put("f1wgq696x", bi.f1wgq696x.getText().toString());
+
         f1.put("f1wgq7", bi.f1wgq7.getText().toString());
 
         MainApp.fc.setF1(String.valueOf(f1));

@@ -137,6 +137,26 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     public void BtnContinue() {
+        if(bi.infotak.getSelectedItem().toString().length()==0 || bi.infotak.getSelectedItem().equals("Select Taluka-"))
+        {
+            Toast.makeText(this,"Please select Tehsil",Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if(bi.infouc.getSelectedItem().toString().length()==0 || bi.infouc.getSelectedItem().equals("Select UC Name-"))
+        {
+            Toast.makeText(this,"Please select UC",Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if(bi.infovil.getSelectedItem().toString().length()==0 || bi.infovil.getSelectedItem().equals("Select Village Name-"))
+        {
+            Toast.makeText(this,"Please select Vilage",Toast.LENGTH_LONG).show();
+            return;
+
+        }
         if (formValidation()) {
             try {
                 SaveDraft();

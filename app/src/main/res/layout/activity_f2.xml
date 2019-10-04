@@ -41,7 +41,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:tag="0"
+                        >
 
                         <CheckBox
                             android:id="@+id/f2wgq1a"
@@ -113,14 +115,19 @@
                         style="@style/i_textview"
                         android:text="@string/f2wgq2" />
 
-                    <EditText
+
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/f2wgq2"
                         style="@style/textInput"
+                        android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/number"
-                        android:inputType="number"
-                        android:maxLength="2" />
+                        android:hint="@string/f2wgq2"
+                        android:maxLength="2"
+                        app:maxValue="30"
+                        app:minValue="1"
+                        app:type="range" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -182,30 +189,36 @@
                         style="@style/i_textview"
                         android:text="@string/f2wgq5" />
 
-                    <RadioGroup
-                        android:id="@+id/f2wgq5"
-                        style="@style/radiogroup">
 
-                        <RadioButton
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:tag="0"
+
+                    >
+                        <CheckBox
                             android:id="@+id/f2wgq5a"
                             style="@style/radiobutton"
                             android:text="@string/f2wgq5a" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/f2wgq5b"
                             style="@style/radiobutton"
                             android:text="@string/f2wgq5b" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/f2wgq5c"
                             style="@style/radiobutton"
                             android:text="@string/f2wgq5c" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/f2wgq596"
                             style="@style/radiobutton"
                             android:text="@string/other" />
 
+                </LinearLayout>
 
                         <EditText
                             android:id="@+id/f2wgq596x"
@@ -218,7 +231,7 @@
                             android:visibility='@{f2wgq596.checked? View.VISIBLE : View.GONE}' />
 
 
-                    </RadioGroup>
+
                     
                     
                     

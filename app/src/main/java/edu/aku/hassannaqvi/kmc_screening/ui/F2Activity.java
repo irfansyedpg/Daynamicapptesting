@@ -37,6 +37,18 @@ public class F2Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
+
+            int a=Integer.parseInt(bi.f2wgq2.getText().toString());
+            int b=Integer.parseInt(bi.f2wgq3.getText().toString());
+
+
+
+            if(b>a)
+            {
+                bi.f2wgq2.setError("should be Greater then Q3");
+                bi.f2wgq2.requestFocus();
+                return;
+            }
             try {
                 SaveDraft();
                 if (UpdateDB()) {
@@ -88,9 +100,17 @@ public class F2Activity extends AppCompatActivity {
         f1.put("f2wgq4", bi.f2wgq4.getText().toString());
 
 
-        f1.put("f2wgq5", bi.f2wgq5a.isChecked() ? "1" : bi.f2wgq5b.isChecked() ? "2" : bi.f2wgq5c.isChecked() ? "3"
-                : bi.f2wgq596.isChecked() ? "96" : "0");
-        
+
+
+
+
+
+
+        f1.put("f2wgq5a", bi.f2wgq5a.isChecked() ? "1" : "0");
+        f1.put("f2wgq5b", bi.f2wgq5b.isChecked() ? "2" : "0");
+        f1.put("f2wgq5c", bi.f2wgq5c.isChecked() ? "3" : "0");
+        f1.put("f2wgq596", bi.f2wgq596.isChecked() ? "96" : "0");
+
         f1.put("f2wgq596x", bi.f2wgq596x.getText().toString());
 
         f1.put("f2wgq6", bi.f2wgq6.getText().toString());
