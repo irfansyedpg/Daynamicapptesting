@@ -23,7 +23,7 @@ public class F1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_f1);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_a);
         bi.setCallback(this);
 
 //        setTitle(R.string.f9aHeading);

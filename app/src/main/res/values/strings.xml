@@ -119,34 +119,50 @@
     <!-- KMC Form 3 -->
 
 
-    <string name="f3wgq1"> سيشن ۾ ڪهڙن موضوعن تي ڳالهه ٻولهه ٿي؟ ( هڪ کان وڌيڪ جواب ٿي سگھن ٿا) </string>
-    <string name="f3wgq1a"> اي اين سي </string>
-    <string name="f3wgq1b"> پي اين سي </string>
-    <string name="f3wgq1c"> دن/ ناڙي جي سار سنڀال </string>
-    <string name="f3wgq1d"> گھٽ وزن واري ٻار جي سارسنڀال </string>
-    <string name="f3wgq1e"> ڪي ايم سي ۽ ٻار جو وزن </string>
-    <string name="f3wgq1f"> ڪي ايم سي گرمائش ۽ ان جي اهميت </string>
-    <string name="f3wgq1g"> ڪي ايم سي ۽ جراسيمن کان بچاءُ </string>
-    <string name="f3wgq1h"> ڪي ايم سي ۽ ٻار ۽ ماءُ جي وچ ۾ محبت </string>
-    <string name="f3wgq1i"> ماءُ جو کير ۽ صرف ۽ صرف ماءُ جو کير </string>
-    <string name="f3wgq1j"> صحت مرڪز تي ويم جو ٿيڻ </string>
-    <string name="f3wgq1k"> اميونيزيشن </string>
-
-    <string name="f3wgq2"> سيشن جو ڪل دورانيا / وقت ڪيترو رهيو؟ منٽ </string>
-
-    <string name="f3wgq3"> سيشن ۾ ڪهڙو ڪهڙو آ اي سي مٽيريل استعمال ڪيو ويو؟ (هڪ کان وڌيڪ جواب ٿي سگھن ٿا) </string>
-    <string name="f3wgq3a"> ڪي ايم سي وڊيو </string>
-    <string name="f3wgq3b"> ڪي ايم سي فلپ چارٽ </string>
-    <string name="f3wgq3c"> ڪي ايم سي تصويرون </string>
-    <string name="f3wgq396"> ٻيو ڪجھ </string>
-    <string name="f3wgq396x"> ٻيو ڪجھ </string>
-    <string name="f3wgq4"> هن ڳورهاري عورت سان هي ڪهڙو نمبر سيشن آهي؟ </string>
-    <string name="f3wgq4a"> پهريون </string>
-    <string name="f3wgq4b"> ٻيون </string>
-    <string name="f3wgq4c"> ٽيون </string>
+    <string name="crfh"> CRF A: Out Patient Department Registry </string>
 
 
+    <string name="cra01"> Study ID </string>
 
-    <!-- KMC -->
+
+    <string name="cra02"> OPD Number </string>
+
+    <string name="cra03"> Date of presentation </string>
+    <string name="cra03a"> day </string>
+    <string name="cra03b"> month </string>
+    <string name="cra03c"> year </string>
+
+    <string name="cra04"> Name </string>
+
+    <string name="cra05"> Father Name </string>
+
+    <string name="cra06"> Address </string>
+    <string name="cra06a"> District </string>
+    <string name="cra06b"> Union Council </string>
+    <string name="cra06c"> Village </string>
+    <string name="cra06d"> Address/Hint </string>
+
+    <string name="cra07"> Phone number </string>
+
+    <string name="cra08"> Age </string>
+    <string name="cra08a"> day </string>
+    <string name="cra08b"> month </string>
+    <string name="cra08c"> year </string>
+
+    <string name="cra09"> Sex </string>
+    <string name="cra09a"> Male </string>
+    <string name="cra09b"> Female </string>
+
+    <string name="cra10"> Referred from </string>
+
+    <string name="cra11"> Diagnosis </string>
+
+    <string name="cra12"> Disposition </string>
+    <string name="cra12a"> Sent Home </string>
+    <string name="cra12b"> Admitted </string>
+    <string name="cra12c"> Referred </string>
+    <string name="cra12d"> Died </string>
+    <string name="cra12e"> LWBS/LAMA </string>
+
 
 </resources>

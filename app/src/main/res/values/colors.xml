@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#01579b</color>
-    <color name="colorPrimaryDark">#002f6c</color>
-    <color name="colorAccent">#4f83cc</color>
+    <color name="colorPrimary">#43A047</color>
+    <color name="colorPrimaryDark">#4caf50</color>
+    <color name="colorAccent">#43A047</color>
 
     <color name="ticker_red">#80ff0000</color>
 

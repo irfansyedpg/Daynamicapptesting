@@ -15,7 +15,7 @@ import edu.aku.hassannaqvi.kmc_screening.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.kmc_screening.core.DatabaseHelper;
 import edu.aku.hassannaqvi.kmc_screening.core.MainApp;
 import edu.aku.hassannaqvi.kmc_screening.databinding.ActivityMainBinding;
-import edu.aku.hassannaqvi.kmc_screening.ui.InfoActivity;
+import edu.aku.hassannaqvi.kmc_screening.ui.F1Activity;
 import edu.aku.hassannaqvi.kmc_screening.ui.SyncActivity;
 import edu.aku.hassannaqvi.kmc_screening.util.Util;
 
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openForm(int type) {
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
-            startActivity(new Intent(MainActivity.this, InfoActivity.class).putExtra(MainApp.formType, selectFormType(type)));
+            startActivity(new Intent(MainActivity.this, F1Activity.class).putExtra(MainApp.formType, selectFormType(type)));
         } else {
             Util.showTagDialog(this);
         }
