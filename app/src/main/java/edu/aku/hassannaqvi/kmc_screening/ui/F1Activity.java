@@ -4,66 +4,47 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.kmc_screening.R;
 import edu.aku.hassannaqvi.kmc_screening.core.DatabaseHelper;
 import edu.aku.hassannaqvi.kmc_screening.core.MainApp;
-import edu.aku.hassannaqvi.kmc_screening.databinding.ActivityF1Binding;
-import edu.aku.hassannaqvi.kmc_screening.validation.ValidatorClass;
+import edu.aku.hassannaqvi.kmc_screening.databinding.ActivityABinding;
 
 public class F1Activity extends AppCompatActivity {
 
-    ActivityF1Binding bi;
+    ActivityABinding bi;
+    private String[] fruits = {"Apple", "Appy"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         bi = DataBindingUtil.setContentView(this, R.layout.activity_a);
         bi.setCallback(this);
 
 //        setTitle(R.string.f9aHeading);
 
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                (this, android.R.layout.select_dialog_item, fruits);
+        bi.cra11.setThreshold(1); //will start working from first character
+        bi.cra11.setAdapter(adapter);
+
+
+
         setupViews();
     }
-
     private void setupViews() {
 
     }
 
     public void BtnContinue() {
         if (formValidation()) {
-
-            int a=Integer.parseInt(bi.f1wgq2.getText().toString());
-            int b=Integer.parseInt(bi.f1wgq3.getText().toString());
-
-            int c=Integer.parseInt(bi.f1wgq4.getText().toString());
-
-            if(b>a)
-            {
-                bi.f1wgq2.setError("should be Greater then Q3");
-                bi.f1wgq2.requestFocus();
-                return;
-            }
-
-            if(c>a)
-            {
-                bi.f1wgq2.setError("should be Greater then Q4");
-                bi.f1wgq2.requestFocus();
-                return;
-            }
-
-            if(c+b>a)
-            {
-                bi.f1wgq2.setError("should be Greater then Sum of Q4 & Q3");
-                bi.f1wgq2.requestFocus();
-                return;
-            }
-
 
             try {
                 SaveDraft();
@@ -97,7 +78,7 @@ public class F1Activity extends AppCompatActivity {
 
     private void SaveDraft() throws JSONException {
 
-
+/*
         JSONObject f1 = new JSONObject();
         f1.put("f1wgq1a", bi.f1wgq1a.isChecked() ? "1" : "0");
         f1.put("f1wgq1b", bi.f1wgq1b.isChecked() ? "2" : "0");
@@ -125,12 +106,18 @@ public class F1Activity extends AppCompatActivity {
 
         MainApp.fc.setF1(String.valueOf(f1));
 
+        */
+
+
     }
 
     private boolean formValidation() {
 
-        return ValidatorClass.EmptyCheckingContainer(this, bi.fldGrpF1);
+        // return ValidatorClass.EmptyCheckingContainer(this, bi.fldGrpF1);
+
+        return false;
     }
+
 
     public void BtnEnd() {
 
