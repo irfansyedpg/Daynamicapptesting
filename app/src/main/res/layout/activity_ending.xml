@@ -15,7 +15,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layoutDirection="rtl"
+
         android:orientation="vertical">
 
         <ScrollView
@@ -40,6 +40,28 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@android:color/white" />
 
+                <Button
+                    android:id="@+id/btn_End"
+                    style="@style/buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:onClick="@{() -> callback.BtnEnd()}"
+                    android:text="@string/end_interview"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/istatus96x"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
+                    android:hint="@string/other"
+                    android:maxLength="40"
+                    android:visibility="gone" />
+
                 <RadioGroup
                     android:id="@+id/istatus"
                     android:layout_width="match_parent"
@@ -51,7 +73,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/end01" />
+                        android:text="completed" />
 
                     <RadioButton
                         android:id="@+id/istatusb"
@@ -59,7 +81,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/end02" />
+                        android:text="Incomplete" />
 
                     <RadioButton
                         android:id="@+id/istatusc"
@@ -67,7 +89,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/end03" />
+                        android:text="Refused" />
 
                     <RadioButton
                         android:id="@+id/istatusd"
@@ -75,7 +97,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/end04" />
+                        android:text="visited 2 times not avilable" />
 
                     <RadioButton
                         android:id="@+id/istatuse"
@@ -83,7 +105,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/end05" />
+                        android:text="Migrated" />
 
                     <RadioButton
                         android:id="@+id/istatus96"
@@ -91,7 +113,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="1dp"
-                        android:text="@string/other" />
+                        android:text="Other" />
 
                     <!--<RadioButton
                         android:id="@+id/istatush"
@@ -112,28 +134,6 @@
                         android:text="@string/other" />-->
 
                 </RadioGroup>
-
-                <EditText
-                    android:id="@+id/istatus96x"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
-                    android:hint="@string/other"
-                    android:maxLength="40"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/btn_End"
-                    style="@style/buttons"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_weight="1"
-                    android:background="@color/blue"
-                    android:onClick="@{() -> callback.BtnEnd()}"
-                    android:text="@string/end_interview"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
 
             </LinearLayout>
         </ScrollView>

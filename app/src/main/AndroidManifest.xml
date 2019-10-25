@@ -37,10 +37,9 @@
             android:name=".ui.LoginActivity"
             android:theme="@style/AppTheme1"></activity>
         <activity android:name=".ui.SyncActivity" />
-        <activity android:name=".ui.InfoActivity" />
-        <activity android:name=".ui.F1Activity" />
-        <activity android:name=".ui.F2Activity" />
-        <activity android:name=".ui.F3Activity" />
+        <activity android:name=".ui.CRFBActivity" />
+        <activity android:name=".ui.CRFAActivity" />
+
 
         <activity android:name=".core.AndroidDatabaseManager" />
         <activity android:name=".MainActivity">

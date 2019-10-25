@@ -3,7 +3,7 @@
     <item android:drawable="@drawable/border_logo" />
     <item>
         <shape>
-            <solid android:background="@color/colorPrimary" />
+            <solid android:background="@color/colorAccent" />
         </shape>
     </item>
 

@@ -1,5 +1,5 @@
 <resources>
- <string name="app_name">KMC Screening</string>
+    <string name="app_name">CRF Emergency-Care</string>
 
     <string name="yes"> ھا </string>
     <string name="no"> نہ </string>
@@ -163,6 +163,59 @@
     <string name="cra12c"> Referred </string>
     <string name="cra12d"> Died </string>
     <string name="cra12e"> LWBS/LAMA </string>
+
+
+    <!-- Section  B -->
+
+
+    <string name="crb01"> Study ID </string>
+
+
+    <string name="crb02"> OPD Number </string>
+    <string name="crb03"> IPD Number </string>
+
+    <string name="crb04"> Date of presentation </string>
+    <string name="crb04a"> day </string>
+    <string name="crb04b"> month </string>
+    <string name="crb04c"> year </string>
+
+    <string name="crb05"> Name </string>
+
+    <string name="crb06"> Father Name </string>
+
+    <string name="crb07"> Address </string>
+    <string name="crb07a"> District </string>
+    <string name="crb07b"> Union Council </string>
+    <string name="crb07c"> Village </string>
+    <string name="crb07d"> Address/Hint </string>
+
+    <string name="crb08"> Phone number </string>
+
+    <string name="crb09"> Age </string>
+    <string name="crb09a"> day </string>
+    <string name="crb09b"> month </string>
+    <string name="crb09c"> year </string>
+
+    <string name="crb10"> Sex </string>
+    <string name="crb10a"> Male </string>
+    <string name="crb10b"> Female </string>
+
+    <string name="crb11"> Referred from </string>
+
+    <string name="crb12"> Diagnosis </string>
+
+    <string name="crb13"> Disposition </string>
+    <string name="crb13a"> Sent Home </string>
+    <string name="crb13b"> Admitted </string>
+    <string name="crb13c"> Referred </string>
+    <string name="crb13d"> Died </string>
+    <string name="crb13e"> LWBS/LAMA </string>
+
+    <string name="crb14"> Date of Discharge </string>
+
+    <string name="crb14a"> day </string>
+    <string name="crb14b"> month </string>
+    <string name="crb14c"> year </string>
 
 
 </resources>

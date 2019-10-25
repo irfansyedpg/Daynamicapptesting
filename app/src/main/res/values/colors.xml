@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#43A047</color>
     <color name="colorPrimaryDark">#4caf50</color>
-    <color name="colorAccent">#43A047</color>
+    <color name="colorAccent">#6ec071</color>
 
     <color name="ticker_red">#80ff0000</color>
 

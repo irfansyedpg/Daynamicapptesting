@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class FormsContract {
 
 
-    private final String projectName = "KMC_Screening";
+    private final String projectName = "CRF";
     //private final String surveyType = "SN";
     private String _ID = "";
     private String _UID = "";
@@ -43,6 +43,10 @@ public class FormsContract {
     private String sA402 = ""; // sA4
     private String sA7 = ""; //
     private String f1 = ""; //
+
+    private String CRFA = ""; //
+    private String studyid = ""; //
+
     private String f2 = ""; //
     private String f3 = ""; //
     private String endtime = "";
@@ -95,6 +99,10 @@ public class FormsContract {
         this.istatusHH = jsonObject.getString(FormsTable.COLUMN_ISTATUSHH);
         this.gpsElev = jsonObject.getString(FormsTable.COLUMN_GPSELEV);
         this.f1 = jsonObject.getString(FormsTable.COLUMN_F1);
+
+        this.CRFA = jsonObject.getString(FormsTable.COLUMN_CRFA);
+        this.studyid = jsonObject.getString(FormsTable.COLUMN_studyid);
+
         this.f2 = jsonObject.getString(FormsTable.COLUMN_F2);
         this.f3 = jsonObject.getString(FormsTable.COLUMN_F3);
         this.formType = jsonObject.getString(FormsTable.COLUMN_FORMTYPE);
@@ -127,6 +135,10 @@ public class FormsContract {
         this.istatus88x = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS88x));
         this.gpsElev = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSELEV));
         this.f1 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F1));
+
+        this.CRFA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_CRFA));
+        this.studyid = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_studyid));
+
         this.f2 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F2));
         this.f3 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F3));
         this.formType = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMTYPE));
@@ -405,6 +417,23 @@ public class FormsContract {
         this.f1 = f1;
     }
 
+    public String getCRFA() {
+        return CRFA;
+    }
+
+    public void setCRFA(String CRFA) {
+        this.CRFA = CRFA;
+    }
+
+
+    public String getstudyid() {
+        return studyid;
+    }
+
+    public void setstudyid(String studyid) {
+        this.studyid = studyid;
+    }
+
     public String getF2() {
         return f2;
     }
@@ -438,10 +467,24 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_ISTATUS88x, this.istatus88x == null ? JSONObject.NULL : this.istatus88x);
         json.put(FormsTable.COLUMN_ISTATUSHH, this.istatusHH == null ? JSONObject.NULL : this.istatusHH);
         json.put(FormsTable.COLUMN_GPSELEV, this.gpsElev == null ? JSONObject.NULL : this.gpsElev);
+
         if (!this.f1.equals("")) {
 
             json.put(FormsTable.COLUMN_F1, this.f1.equals("") ? JSONObject.NULL : new JSONObject(this.f1));
         }
+
+
+        if (!this.CRFA.equals("")) {
+
+            json.put(FormsTable.COLUMN_CRFA, this.CRFA.equals("") ? JSONObject.NULL : new JSONObject(this.CRFA));
+        }
+
+
+        if (!this.studyid.equals("")) {
+
+            json.put(FormsTable.COLUMN_studyid, this.studyid.equals("") ? JSONObject.NULL : new JSONObject(this.studyid));
+        }
+
         if (!this.f2.equals("")) {
 
             json.put(FormsTable.COLUMN_F2, this.f2.equals("") ? JSONObject.NULL : new JSONObject(this.f2));
@@ -491,6 +534,10 @@ public class FormsContract {
         public static final String COLUMN_ISTATUSHH = "istatusHH";
         public static final String COLUMN_END_TIME = "endtime";
         public static final String COLUMN_F1 = "f1";
+
+        public static final String COLUMN_CRFA = "crfa";
+        public static final String COLUMN_studyid = "studyid";
+
         public static final String COLUMN_F2 = "f2";
         public static final String COLUMN_F3 = "f3";
         public static final String COLUMN_FORMTYPE = "f_Type";
