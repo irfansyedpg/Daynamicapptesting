@@ -55,6 +55,9 @@ public class CRFBActivity extends AppCompatActivity {
 
     }
 
+    public void seearch() {
+
+    }
     public void BtnContinue() {
         if (formValidation()) {
 

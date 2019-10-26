@@ -5,6 +5,31 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="callback"
+            type="edu.aku.hassannaqvi.kmc_screening.ui.CRFBActivity" />
+    </data>
+
+    <!--
+        <android.support.v7.widget.CardView style="@style/cardView">
+
+            <LinearLayout style="@style/linearlayout_view_wt_bound">
+
+                <TextView
+                    style="@style/i_textview"
+                    android:text="CRF-B: Inpatient Care Registry" />
+
+
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,32 +44,6 @@
 
 
             <!--crb1-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
-
-
-                <Button
-                    android:id="@+id/btn_End"
-                    style="@style/button"
-                    android:layout_marginRight="10dp"
-                    android:onClick="@{() -> callback.BtnEnd()}"
-                    android:text="Cancel" />
-
-                <Button
-                    android:id="@+id/btn_Continue"
-                    style="@style/button"
-                    android:onClick="@{() -> callback.BtnContinue()}"
-                    android:text="Save" />
-
-
-                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
-            </LinearLayout>
-
-            <!--crb2-->
             <android.support.v7.widget.CardView style="@style/cardView">
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
@@ -66,11 +65,22 @@
                         app:minValue="1"
                         app:type="range" />
 
+                    <Button
+                        android:id="@+id/btn_search"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="10dp"
+                        android:onClick="@{() -> callback.seearch()}"
+                        android:text="Search" />
+
+
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
 
-            <!--crb3-->
+            <!--crb2-->
             <android.support.v7.widget.CardView style="@style/cardView">
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
@@ -96,7 +106,7 @@
             </android.support.v7.widget.CardView>
 
 
-            <!--crb4-->
+            <!--crb3-->
             <android.support.v7.widget.CardView style="@style/cardView">
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
@@ -121,9 +131,8 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
-            <!--crb5-->
 
-
+            <!--crb4-->
             <android.support.v7.widget.CardView style="@style/cardView">
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
@@ -172,6 +181,27 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
+            <!--crb5-->
+
+
+            <android.support.v7.widget.CardView style="@style/cardView">
+
+
+                <LinearLayout style="@style/linearlayout_view_wt_bound">
+
+                    <TextView
+                        style="@style/i_textview"
+                        android:text="@string/crb05" />
+
+
+                    <EditText
+                        android:id="@+id/crb05"
+                        style="@style/textInput"
+                        android:hint="@string/crb05"
+                        android:inputType="textPersonName" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
 
             <!--crb6-->
 
@@ -180,16 +210,16 @@
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
 
-                    <EditText
-                        android:id="@+id/crb05"
-                        style="@style/textInput"
-                        android:hint="@string/crb05"
-                        android:inputType="textPersonName" />
-
-
                     <TextView
                         style="@style/i_textview"
-                        android:text="@string/crb05" />
+                        android:text="@string/crb06" />
+
+
+                    <EditText
+                        android:id="@+id/crb06"
+                        style="@style/textInput"
+                        android:hint="@string/crb06"
+                        android:inputType="textPersonName" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -201,32 +231,16 @@
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
 
-                    <EditText
-                        android:id="@+id/crb06"
-                        style="@style/textInput"
-                        android:hint="@string/crb06"
-                        android:inputType="textPersonName" />
-
-
                     <TextView
                         style="@style/i_textview"
-                        android:text="@string/crb06" />
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+                        android:text="@string/crb07" />
 
-
-            <!--crb8-->
-            <android.support.v7.widget.CardView style="@style/cardView">
-
-
-                <LinearLayout style="@style/linearlayout_view_wt_bound">
 
                     <EditText
                         android:id="@+id/crb07a"
                         style="@style/textInput"
                         android:hint="@string/crb07a"
                         android:inputType="textPersonName" />
-
 
                     <EditText
                         android:id="@+id/crb07b"
@@ -245,19 +259,20 @@
                         style="@style/textInput"
                         android:hint="@string/crb07d"
                         android:inputType="textPersonName" />
-
-                    <TextView
-                        style="@style/i_textview"
-                        android:text="@string/crb07" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
 
-            <!--crb9-->
+            <!--crb8-->
             <android.support.v7.widget.CardView style="@style/cardView">
 
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
+
+                    <TextView
+                        style="@style/i_textview"
+                        android:text="@string/crb08" />
+
 
                     <EditText
                         android:id="@+id/crb08"
@@ -265,16 +280,11 @@
                         android:hint="@string/crb08"
                         android:inputType="number" />
 
-
-                    <TextView
-                        style="@style/i_textview"
-                        android:text="@string/crb08" />
-
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
 
-            <!--crb10-->
+            <!--crb9-->
             <android.support.v7.widget.CardView style="@style/cardView">
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
@@ -327,12 +337,14 @@
             </android.support.v7.widget.CardView>
 
 
-            <!--crb11-->
-
-
+            <!--crb10-->
             <android.support.v7.widget.CardView style="@style/cardView">
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
+
+                    <TextView
+                        style="@style/i_textview"
+                        android:text="@string/crb10" />
 
                     <RadioGroup
 
@@ -352,37 +364,35 @@
 
                     </RadioGroup>
 
-                    <TextView
-                        style="@style/i_textview"
-                        android:text="@string/crb10" />
-
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
 
-            <!--crb12-->
+            <!--crb11-->
+
 
             <android.support.v7.widget.CardView style="@style/cardView">
 
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
 
+                    <TextView
+                        style="@style/i_textview"
+                        android:text="@string/crb11" />
+
+
                     <EditText
                         android:id="@+id/crb11"
                         style="@style/textInput"
                         android:hint="@string/crb11"
                         android:inputType="textPersonName" />
-
-
-                    <TextView
-                        style="@style/i_textview"
-                        android:text="@string/crb11" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
 
-            <!--crb13-->
+            <!--crb12-->
+
             <android.support.v7.widget.CardView style="@style/cardView">
 
 
@@ -403,10 +413,14 @@
             </android.support.v7.widget.CardView>
 
 
-            <!--crb14-->
+            <!--crb13-->
             <android.support.v7.widget.CardView style="@style/cardView">
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
+
+                    <TextView
+                        style="@style/i_textview"
+                        android:text="@string/crb13" />
 
                     <RadioGroup
 
@@ -436,16 +450,12 @@
 
                     </RadioGroup>
 
-                    <TextView
-                        style="@style/i_textview"
-                        android:text="@string/crb13" />
-
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
 
-            <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
+            <!--crb14-->
             <android.support.v7.widget.CardView style="@style/cardView">
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
@@ -495,33 +505,35 @@
             </android.support.v7.widget.CardView>
 
 
+            <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/btn_End"
+                    style="@style/button"
+                    android:layout_marginRight="10dp"
+                    android:onClick="@{() -> callback.BtnEnd()}"
+                    android:text="Cancel" />
+
+                <Button
+                    android:id="@+id/btn_Continue"
+                    style="@style/button"
+                    android:onClick="@{() -> callback.BtnContinue()}"
+                    android:text="Save" />
+
+
+                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+            </LinearLayout>
+
+
         </LinearLayout>
 
     </ScrollView>
-
-    <!--
-        <android.support.v7.widget.CardView style="@style/cardView">
-
-            <LinearLayout style="@style/linearlayout_view_wt_bound">
-
-                <TextView
-                    style="@style/i_textview"
-                    android:text="CRF-B: Inpatient Care Registry" />
-
-
-
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-    -->
-    <data>
-
-        <import type="android.view.View" />
-
-        <variable
-            name="callback"
-            type="edu.aku.hassannaqvi.kmc_screening.ui.CRFBActivity" />
-    </data>
 </layout>
 
