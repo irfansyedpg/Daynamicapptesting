@@ -4,6 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="callback"
+            type="edu.aku.hassannaqvi.kmc_screening.ui.CRFAActivity" />
+    </data>
+
     <!--Header
     <android.support.v7.widget.CardView style="@style/cardView">
 
@@ -21,7 +31,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.F1Activity">
+        tools:context=".ui.CRFAActivity">
 
         <LinearLayout
             android:id="@+id/GrpCRFA"
