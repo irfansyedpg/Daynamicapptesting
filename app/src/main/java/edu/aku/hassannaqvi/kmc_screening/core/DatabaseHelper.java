@@ -195,6 +195,74 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return formList;
     }
 
+    public FormsContract getsFormContract(String studyID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FormsTable._ID,
+                FormsTable.COLUMN_UID,
+                FormsTable.COLUMN_FORMDATE,
+                FormsTable.COLUMN_USER,
+                FormsTable.COLUMN_UC_ID,
+                FormsTable.COLUMN_village_ID,
+                FormsTable.COLUMN_ISTATUS,
+                FormsTable.COLUMN_ISTATUS88x,
+                FormsTable.COLUMN_END_TIME,
+                FormsTable.COLUMN_F1,
+                FormsTable.COLUMN_CRFA,
+                FormsTable.COLUMN_studyid,
+                FormsTable.COLUMN_F2,
+                FormsTable.COLUMN_F3,
+                FormsTable.COLUMN_FORMTYPE,
+                FormsTable.COLUMN_TALUKA_CODE,
+                FormsTable.COLUMN_GPSLAT,
+                FormsTable.COLUMN_GPSLNG,
+                FormsTable.COLUMN_GPSDATE,
+                FormsTable.COLUMN_GPSACC,
+                FormsTable.COLUMN_GPSELEV,
+                FormsTable.COLUMN_GPSTIME,
+                FormsTable.COLUMN_DEVICEID,
+                FormsTable.COLUMN_DEVICETAGID,
+                FormsTable.COLUMN_SYNCED,
+                FormsTable.COLUMN_SYNCED_DATE,
+                FormsTable.COLUMN_APP_VERSION,
+        };
+
+
+        String whereClause = FormsTable.COLUMN_studyid + "=?";
+        String[] whereArgs = new String[]{studyID};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FormsTable._ID + " ASC";
+
+        FormsContract allFC = new FormsContract();
+        try {
+            c = db.query(
+                    FormsTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FormsContract fc = new FormsContract();
+                allFC = fc.Hydrate(c);
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFC;
+    }
+
     public List<VillagesContract> getVillages(String id) {
         List<VillagesContract> formList = new ArrayList<>();
 

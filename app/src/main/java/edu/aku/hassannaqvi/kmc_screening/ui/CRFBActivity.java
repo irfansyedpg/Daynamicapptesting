@@ -5,7 +5,11 @@ import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.DateFormat;
+import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -16,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import edu.aku.hassannaqvi.kmc_screening.JSONModels.JSONModelCRFA;
+import edu.aku.hassannaqvi.kmc_screening.JsonUtils.JSONUtils;
 import edu.aku.hassannaqvi.kmc_screening.R;
 import edu.aku.hassannaqvi.kmc_screening.contracts.FormsContract;
 import edu.aku.hassannaqvi.kmc_screening.core.DatabaseHelper;
@@ -29,7 +35,9 @@ import static edu.aku.hassannaqvi.kmc_screening.core.MainApp.fc;
 
 public class CRFBActivity extends AppCompatActivity {
 
+    private static final String TAG = "CRFBActivity";
     ActivityBBinding bi;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,8 @@ public class CRFBActivity extends AppCompatActivity {
 
         bi = DataBindingUtil.setContentView(this, R.layout.activity_b);
         bi.setCallback(this);
+
+        db = new DatabaseHelper(this);
 
 //        setTitle(R.string.f9aHeading);
         List<String> Dieascodelist = new ArrayList<>(DiseaseCode.HmDiseaseCode.keySet());
@@ -53,11 +63,49 @@ public class CRFBActivity extends AppCompatActivity {
 
     private void setupViews() {
 
+        bi.crb01.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (s.toString().equals("")) {
+                    bi.checkDataLayout.setVisibility(View.GONE);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        bi.btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!bi.crb01.getText().toString().equals("")) {
+                     FormsContract fc = db.getsFormContract(bi.crb01.getText().toString());
+                    if (fc != null) {
+                        JSONModelCRFA crfa = JSONUtils.getModelFromJSON(fc.getCRFA(), JSONModelCRFA.class);
+                        Log.d(TAG, "onClick: json " + crfa.toString());
+                    }
+
+                }
+
+            }
+        });
     }
 
     public void seearch() {
 
     }
+
     public void BtnContinue() {
         if (formValidation()) {
 
