@@ -80,7 +80,8 @@ public class SyncActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Toast.makeText(SyncActivity.this, "Start Uploading Data", Toast.LENGTH_SHORT).show();
-                syncServer();
+                syncServerCRFA();
+                syncServerCRFB();
             }
         });
         setAdapter();
@@ -128,7 +129,7 @@ public class SyncActivity extends AppCompatActivity {
     }
 
 
-    public void syncServer() {
+    public void syncServerCRFA() {
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -149,7 +150,58 @@ public class SyncActivity extends AppCompatActivity {
                     "updateSyncedForms",
                     FormsContract.class,
                     MainApp._HOST_URL + FormsContract.FormsTable._URL,
-                    db.getUnsyncedForms(), 0, uploadListAdapter, uploadlist
+                    db.getUnsyncedFormsCRF("CRFA"), 0, uploadListAdapter, uploadlist
+            ).execute();
+//            if (uploadlistActivityCreated) {
+//                uploadmodel = new SyncModel();
+//                uploadmodel.setstatusID(0);
+//                uploadlist.add(uploadmodel);
+//            }
+//            new SyncAllData(
+//                    this,
+//                    "Family Members",
+//                    "updateSyncedFamilyMembers",
+//                    FormsContract.class,
+//                    MainApp._HOST_URL + FamilyMembersContract.familyMembers._URL,
+//                    db.getUnsyncedFamilyMember(), 1, uploadListAdapter, uploadlist
+//            ).execute();
+            uploadlistActivityCreated = false;
+
+            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = syncPref.edit();
+
+            editor.putString("LastUpSyncServer", dtToday);
+
+            editor.apply();
+
+        } else {
+            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void syncServerCRFB() {
+
+        // Require permissions INTERNET & ACCESS_NETWORK_STATE
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+
+            DatabaseHelper db = new DatabaseHelper(this);
+
+            if (uploadlistActivityCreated) {
+                uploadmodel = new SyncModel();
+                uploadmodel.setstatusID(0);
+                uploadlist.add(uploadmodel);
+            }
+            new SyncAllData(
+                    this,
+                    "Forms",
+                    "updateSyncedForms",
+                    FormsContract.class,
+                    MainApp._HOST_URL + FormsContract.FormsTable._URL2,
+                    db.getUnsyncedFormsCRF("CRFB"), 0, uploadListAdapter, uploadlist
             ).execute();
 //            if (uploadlistActivityCreated) {
 //                uploadmodel = new SyncModel();

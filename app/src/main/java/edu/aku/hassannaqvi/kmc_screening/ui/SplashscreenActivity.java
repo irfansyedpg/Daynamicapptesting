@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 
+import edu.aku.hassannaqvi.kmc_screening.MainActivity;
 import edu.aku.hassannaqvi.kmc_screening.R;
 
 
@@ -104,8 +105,8 @@ public class SplashscreenActivity extends Activity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                //  Intent i = new Intent(SplashscreenActivity.this, F1Activity.class);
-                Intent i = new Intent(SplashscreenActivity.this, LoginActivity.class);
+            //      Intent i = new Intent(SplashscreenActivity.this, CRFAActivity.class);
+               Intent i = new Intent(SplashscreenActivity.this, LoginActivity.class);
                 toggle();
                 startActivity(i);
 

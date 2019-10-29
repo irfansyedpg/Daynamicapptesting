@@ -93,7 +93,57 @@ public class CRFBActivity extends AppCompatActivity {
                      FormsContract fc = db.getsFormContract(bi.crb01.getText().toString());
                     if (fc != null) {
                         JSONModelCRFA crfa = JSONUtils.getModelFromJSON(fc.getCRFA(), JSONModelCRFA.class);
-                        Log.d(TAG, "onClick: json " + crfa.toString());
+
+
+
+
+
+
+
+                        try
+                        {
+                            bi.crb02.setText(crfa.getCra02());
+                            bi.crb05.setText(crfa.getCra04());
+                            bi.crb06.setText(crfa.getCra05());
+
+                            bi.crb07a.setText(crfa.getCra06a());
+                            bi.crb07b.setText(crfa.getCra06b());
+                            bi.crb07c.setText(crfa.getCra06c());
+                            bi.crb07d.setText(crfa.getCra06d());
+
+                            bi.crb08.setText(crfa.getCra07());
+
+                            bi.crb09a.setText(crfa.getCra08a());
+                            bi.crb09b.setText(crfa.getCra08b());
+                            bi.crb09c.setText(crfa.getCra08c());
+
+                            if (crfa.getCra09().equals("1")) {
+                                bi.crb10a.setChecked(true);
+                            } else {
+                                bi.crb10b.setChecked(true);
+                            }
+
+                            bi.checkDataLayout.setVisibility(View.VISIBLE);
+
+                        }
+                        catch (Exception e)
+                        {
+                            bi.crb01.setError("No record Avilable for this Study ID");
+                            bi.crb01.requestFocus();
+
+                            bi.checkDataLayout.setVisibility(View.GONE);
+
+                        }
+
+
+
+                    }
+                    else {
+                        bi.crb01.setError("No record Avilable for this Study ID");
+                        bi.crb01.requestFocus();
+
+
+
                     }
 
                 }
@@ -102,9 +152,7 @@ public class CRFBActivity extends AppCompatActivity {
         });
     }
 
-    public void seearch() {
 
-    }
 
     public void BtnContinue() {
         if (formValidation()) {

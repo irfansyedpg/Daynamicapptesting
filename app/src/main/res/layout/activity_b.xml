@@ -46,6 +46,11 @@
 
                 <LinearLayout style="@style/linearlayout_view_wt_bound">
 
+
+                    <TextView
+                        style="@style/i_q_textview"
+                        android:fontFamily="@font/roboto"
+                        android:text="crb01" />
                     <TextView
                         style="@style/i_textview"
                         android:text="@string/crb01" />
@@ -89,6 +94,9 @@
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
 
                         <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb02" />
+                        <TextView
                             style="@style/i_textview"
                             android:text="@string/crb02" />
 
@@ -114,6 +122,9 @@
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
 
                         <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb03" />
+                        <TextView
                             style="@style/i_textview"
                             android:text="@string/crb03" />
 
@@ -138,6 +149,10 @@
 
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
 
+
+                        <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb04" />
                         <TextView
                             style="@style/i_textview"
                             android:text="@string/crb04" />
@@ -190,6 +205,10 @@
 
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
 
+
+                        <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb05" />
                         <TextView
                             style="@style/i_textview"
                             android:text="@string/crb05" />
@@ -198,6 +217,7 @@
                         <EditText
                             android:id="@+id/crb05"
                             style="@style/textInput"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:hint="@string/crb05"
                             android:inputType="textPersonName" />
                     </LinearLayout>
@@ -211,6 +231,12 @@
 
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
 
+
+
+                        <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb06" />
+
                         <TextView
                             style="@style/i_textview"
                             android:text="@string/crb06" />
@@ -219,6 +245,7 @@
                         <EditText
                             android:id="@+id/crb06"
                             style="@style/textInput"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:hint="@string/crb06"
                             android:inputType="textPersonName" />
                     </LinearLayout>
@@ -232,6 +259,12 @@
 
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
 
+
+
+                        <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb07" />
+
                         <TextView
                             style="@style/i_textview"
                             android:text="@string/crb07" />
@@ -240,6 +273,7 @@
                         <EditText
                             android:id="@+id/crb07a"
                             style="@style/textInput"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:hint="@string/crb07a"
                             android:inputType="textPersonName" />
 
@@ -258,6 +292,7 @@
                         <EditText
                             android:id="@+id/crb07d"
                             style="@style/textInput"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:hint="@string/crb07d"
                             android:inputType="textPersonName" />
                     </LinearLayout>
@@ -269,6 +304,12 @@
 
 
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
+
+
+
+                        <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb08" />
 
                         <TextView
                             style="@style/i_textview"
@@ -289,6 +330,13 @@
                 <android.support.v7.widget.CardView style="@style/cardView">
 
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
+
+
+
+
+                        <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb09" />
 
                         <TextView
                             style="@style/i_textview"
@@ -343,6 +391,12 @@
 
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
 
+
+
+                        <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb10" />
+
                         <TextView
                             style="@style/i_textview"
                             android:text="@string/crb10" />
@@ -378,6 +432,12 @@
 
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
 
+
+
+                        <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb11" />
+
                         <TextView
                             style="@style/i_textview"
                             android:text="@string/crb11" />
@@ -386,6 +446,8 @@
                         <EditText
                             android:id="@+id/crb11"
                             style="@style/textInput"
+
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:hint="@string/crb11"
                             android:inputType="textPersonName" />
                     </LinearLayout>
@@ -398,6 +460,12 @@
 
 
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
+
+
+
+                        <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb12" />
 
                         <TextView
                             style="@style/i_textview"
@@ -418,6 +486,12 @@
                 <android.support.v7.widget.CardView style="@style/cardView">
 
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
+
+
+
+                        <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb13" />
 
                         <TextView
                             style="@style/i_textview"
@@ -461,6 +535,11 @@
 
                     <LinearLayout style="@style/linearlayout_view_wt_bound">
 
+
+
+                        <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb14" />
                         <TextView
                             style="@style/i_textview"
                             android:text="@string/crb14" />

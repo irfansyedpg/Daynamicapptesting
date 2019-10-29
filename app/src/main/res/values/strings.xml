@@ -206,10 +206,10 @@
 
     <string name="crb13"> Disposition </string>
     <string name="crb13a"> Sent Home </string>
-    <string name="crb13b"> Admitted </string>
-    <string name="crb13c"> Referred </string>
-    <string name="crb13d"> Died </string>
-    <string name="crb13e"> LWBS/LAMA </string>
+
+    <string name="crb13b"> Referred </string>
+    <string name="crb13c"> Died </string>
+    <string name="crb13d"> LAMA </string>
 
     <string name="crb14"> Date of Discharge </string>
 

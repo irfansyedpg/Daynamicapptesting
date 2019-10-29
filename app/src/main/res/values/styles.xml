@@ -319,17 +319,36 @@
     <style name="i_textview">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:background">@color/colorAccent</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">26sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:drawable">@drawable/textview_background_grad</item>
-        <item name="android:typeface">serif</item>
-        <item name="android:paddingTop">16dp</item>
-        <item name="android:paddingLeft">26dp</item>
-        <item name="android:elevation">1dp</item>
+
+
+
+
+
+
+    </style>
+
+    <style name="i_q_textview">
+
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_width">75dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">#f2f2f2</item>
+
+
+        <item name="android:layout_gravity">end</item>
+
+        <item name="android:layout_marginTop">4dp</item>
+
+
 
     </style>
 
@@ -419,22 +438,50 @@
     </style>
     <!-- EditText Acept Number  Ends. -->
 
+
+
+
     <style name="radiogroup">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
+
+
     </style>
 
+
+
+    <style name="textInput">
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto</item>
+
+
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:radius">2dp</item>
+    </style>
 
     <style name="radiobutton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">18sp</item>
 
         <item name="android:clickable">true</item>
-        <item name="android:layout_margin">10dp</item>
-        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+
         <item name="android:padding">5dp</item>
+        <item name="android:radius">2dp</item>
 
 
     </style>
@@ -502,16 +549,7 @@
         <item name="android:paddingStart">8dp</item>
     </style>
 
-    <style name="textInput">
-        <item name="android:textSize">20sp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">50dp</item>
-        <item name="android:layout_margin">10dp</item>
-        <item name="android:background">@drawable/et_style</item>
-        <item name="android:textColorHint">@color/gray</item>
-        <item name="android:padding">10dp</item>
-        <item name="android:radius">0dp</item>
-    </style>
+
 
     <style name="ActionBar">
         <item name="android:background">@color/colorPrimaryDark</item>

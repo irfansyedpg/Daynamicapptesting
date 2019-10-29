@@ -38,7 +38,9 @@ public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding bi;
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "test1234:test1234", "testS12345:testS12345", "bar@example.com:world"
+            "test1234:test1234",
+            "1:1",
+            "testS12345:testS12345", "bar@example.com:world"
     };
     DatabaseHelper db;
     private UserLoginTask mAuthTask = null;

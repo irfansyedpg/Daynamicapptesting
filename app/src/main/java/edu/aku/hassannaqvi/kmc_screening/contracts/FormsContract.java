@@ -31,7 +31,7 @@ public class FormsContract {
 
     private String talukdaCode = "";
     private String formDate = ""; // Date
-    private String user = ""; // Interviewer
+    private String userr = ""; // Interviewer
 
 
     private String istatus = ""; // Interview Status
@@ -92,7 +92,7 @@ public class FormsContract {
         this._ID = jsonObject.getString(FormsTable._ID);
         this._UID = jsonObject.getString(FormsTable.COLUMN_UID);
         this.formDate = jsonObject.getString(FormsTable.COLUMN_FORMDATE);
-        this.user = jsonObject.getString(FormsTable.COLUMN_USER);
+        this.userr = jsonObject.getString(FormsTable.COLUMN_USER);
 
         this.istatus = jsonObject.getString(FormsTable.COLUMN_ISTATUS);
         this.istatus88x = jsonObject.getString(FormsTable.COLUMN_ISTATUS88x);
@@ -130,7 +130,7 @@ public class FormsContract {
         this.uc = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UC_ID));
         this.village = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_village_ID));
         this.formDate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMDATE));
-        this.user = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_USER));
+        this.userr = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_USER));
         this.istatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS));
         this.istatus88x = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS88x));
         this.gpsElev = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSELEV));
@@ -238,11 +238,11 @@ public class FormsContract {
     }
 
     public String getUser() {
-        return user;
+        return userr;
     }
 
     public void setUser(String user) {
-        this.user = user;
+        this.userr = user;
     }
 
     public String getIstatus() {
@@ -462,11 +462,12 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(FormsTable.COLUMN_FORMTYPE, this.formType == null ? JSONObject.NULL : this.formType);
         json.put(FormsTable.COLUMN_TALUKA_CODE, this.talukdaCode == null ? JSONObject.NULL : this.talukdaCode);
-        json.put(FormsTable.COLUMN_USER, this.user == null ? JSONObject.NULL : this.user);
+        json.put(FormsTable.COLUMN_USER, this.userr == null ? JSONObject.NULL : this.userr);
         json.put(FormsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
         json.put(FormsTable.COLUMN_ISTATUS88x, this.istatus88x == null ? JSONObject.NULL : this.istatus88x);
         json.put(FormsTable.COLUMN_ISTATUSHH, this.istatusHH == null ? JSONObject.NULL : this.istatusHH);
         json.put(FormsTable.COLUMN_GPSELEV, this.gpsElev == null ? JSONObject.NULL : this.gpsElev);
+        json.put(FormsTable.COLUMN_studyid, this.studyid == null ? JSONObject.NULL : this.studyid);
 
         if (!this.f1.equals("")) {
 
@@ -479,11 +480,6 @@ public class FormsContract {
             json.put(FormsTable.COLUMN_CRFA, this.CRFA.equals("") ? JSONObject.NULL : new JSONObject(this.CRFA));
         }
 
-
-        if (!this.studyid.equals("")) {
-
-            json.put(FormsTable.COLUMN_studyid, this.studyid.equals("") ? JSONObject.NULL : new JSONObject(this.studyid));
-        }
 
         if (!this.f2.equals("")) {
 
@@ -525,7 +521,7 @@ public class FormsContract {
         public static final String _ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_FORMDATE = "formdate";
-        public static final String COLUMN_USER = "user";
+        public static final String COLUMN_USER = "userr";
         public static final String COLUMN_UC_ID = "uc_id";
         public static final String COLUMN_village_ID = "village_id";
         public static final String COLUMN_TALUKA_CODE = "taluka_code";
@@ -553,6 +549,10 @@ public class FormsContract {
         public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String COLUMN_APP_VERSION = "appversion";
 
-        public static String _URL = "screenings.php";
+      //  public static String _URL = "screenings.php";
+
+        public static String _URL = "forms.php";
+
+        public static String _URL2 = "forms2.php";
     }
 }

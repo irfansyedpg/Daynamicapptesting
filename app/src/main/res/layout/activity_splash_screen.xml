@@ -13,6 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+
             android:orientation="vertical">
 
 
@@ -28,7 +29,8 @@
                 android:layout_width="260dp"
                 android:layout_height="260dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="220dp"
+                android:layout_centerVertical="true"
+
                 android:src="@drawable/uncolor" />
 
 
@@ -38,12 +40,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imageView2"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="13dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+
 
                 android:text="CRF-Emergency Care"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
 
