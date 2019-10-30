@@ -218,4 +218,61 @@
     <string name="crb14c"> year </string>
 
 
+
+
+   <!-- Section  C -->
+
+   <string name="crc01"> Study ID </string>
+
+
+
+   <string name="crc02"> Date of presentation </string>
+   <string name="crc02a"> day </string>
+   <string name="crc02b"> month </string>
+   <string name="crc02c"> year </string>
+
+   <string name="crc03"> Name </string>
+
+   <string name="crc04"> Father Name </string>
+
+
+   <string name="crc05"> Address </string>
+   <string name="crc05a"> District </string>
+   <string name="crc05b"> Union Council </string>
+   <string name="crc05c"> Village </string>
+   <string name="crc05d"> Address/Hint </string>
+
+   <string name="crc06"> LHW assingend </string>
+
+   <string name="crc07">  Date due to notify LHS </string>
+   <string name="crc07a"> day </string>
+   <string name="crc07b"> month </string>
+   <string name="crc07c"> year </string>
+
+
+   <string name="crc08"> Date LHS informed </string>
+   <string name="crc08a"> day </string>
+   <string name="crc08b"> month </string>
+   <string name="crc08c"> year </string>
+
+
+   <string name="crc09"> Date 28-day follow-up due </string>
+   <string name="crc09a"> day </string>
+   <string name="crc09b"> month </string>
+   <string name="crc09c"> year </string>
+
+   <string name="crc10"> Disposition after discharge from DHQ </string>
+
+
+
+   <string name="crc11"> Child alive at 28 days </string>
+   <string name="crc11a"> Yes </string>
+   <string name="crc11b"> No </string>
+
+
+
+
+
+
+
 </resources>

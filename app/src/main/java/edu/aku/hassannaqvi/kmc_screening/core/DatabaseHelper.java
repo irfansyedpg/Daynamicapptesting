@@ -263,6 +263,50 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFC;
     }
 
+    public int getsFormcount() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FormsTable._ID,
+        };
+
+
+        String whereClause =null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FormsTable._ID + " ASC";
+
+        FormsContract allFC = new FormsContract();
+        try {
+            c = db.query(
+                    FormsTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+
+            while (c.moveToNext()) {
+               // FormsContract fc = new FormsContract();
+               // allFC = fc.Hydrate(c);
+
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return   c.getCount();
+    }
+
     public List<VillagesContract> getVillages(String id) {
         List<VillagesContract> formList = new ArrayList<>();
 

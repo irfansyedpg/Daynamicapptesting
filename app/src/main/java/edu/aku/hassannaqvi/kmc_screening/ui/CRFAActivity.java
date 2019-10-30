@@ -12,7 +12,10 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -31,6 +34,7 @@ public class CRFAActivity extends AppCompatActivity {
 
     ActivityABinding bi;
 
+    DatabaseHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,22 @@ public class CRFAActivity extends AppCompatActivity {
 
 
         setupViews();
+
+
+        db = new DatabaseHelper(this);
+        int study_id= db.getsFormcount();
+        study_id=study_id+1;
+        if(study_id<10)
+        {
+            bi.cra01.setText("0"+study_id+"");
+        }
+
+        else
+        {
+            bi.cra01.setText("00"+study_id+"");
+        }
+        bi.cra01.setEnabled(false);
+
     }
 
     private void setupViews() {
@@ -57,6 +77,29 @@ public class CRFAActivity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
+
+
+
+
+
+
+
+
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date strDate = null;
+            try {
+                strDate = sdf.parse(bi.cra03a.getText()+"/"+ bi.cra03b.getText()+"/" +bi.cra03c.getText());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            if (System.currentTimeMillis() < strDate.getTime()) {
+
+                bi.cra03a.setError("Can not be greater then current date");
+                bi.cra03a.requestFocus();
+                return;
+            }
+
 
             try {
                 SaveDraft();

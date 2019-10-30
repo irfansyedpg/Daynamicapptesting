@@ -87,6 +87,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/cra01"
 
+                        android:textSize="27sp"
                         app:maxValue="99999"
                         app:minValue="1"
                         app:type="range" />
@@ -266,11 +267,17 @@
                         android:id="@+id/cra06c"
                         style="@style/textInput"
                         android:inputType="textPersonName"
+
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ / -"
+
                         android:hint="@string/cra06c" />
                     <EditText
                         android:id="@+id/cra06d"
                         style="@style/textInput"
                         android:inputType="textPersonName"
+
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ / -"
+
                         android:hint="@string/cra06d" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -328,7 +335,7 @@
                         android:maxLength="2"
 
                         app:maxValue="30"
-                        app:minValue="1"
+                        app:minValue="0"
                         app:type="range" />
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/cra08b"
@@ -352,7 +359,7 @@
                         android:hint="@string/cra08c"
                         android:maxLength="2"
 
-                        app:maxValue="5"
+                        app:maxValue="99"
                         app:minValue="0"
                         app:type="range" />
 
