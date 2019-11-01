@@ -57,4 +57,10 @@
     <color name="darkRed">#D50000</color>
     <color name="lightOrange">#FFE0B2</color>
 
+
+    <color name="crfccolorPrimary">#3F51B5</color>
+    <color name="crfccolorPrimaryDark">#303F9F</color>
+    <color name="crfccolorAccent">#ff4081</color>
+    <color name="crfcgrey">#f1f5f8</color>
+
 </resources>

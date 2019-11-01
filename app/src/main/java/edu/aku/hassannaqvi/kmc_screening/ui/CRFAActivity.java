@@ -194,6 +194,8 @@ public class CRFAActivity extends AppCompatActivity {
         fc.setFormType("CRFA");
         fc.setstudyid(bi.cra01.getText().toString());
 
+        fc.setcrfcstatus("0");
+
 
     }
 

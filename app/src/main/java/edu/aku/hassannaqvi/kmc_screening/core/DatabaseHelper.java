@@ -83,6 +83,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormsTable.COLUMN_F1 + " TEXT," +
             FormsTable.COLUMN_CRFA + " TEXT," +
             FormsTable.COLUMN_studyid + " TEXT," +
+            FormsTable.COLUMN_crfcstatus + " TEXT," +
             FormsTable.COLUMN_F2 + " TEXT," +
             FormsTable.COLUMN_F3 + " TEXT," +
             FormsTable.COLUMN_END_TIME + " TEXT," +
@@ -263,6 +264,84 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFC;
     }
 
+
+    public List<FormsContract> getsFormContractCRFC(String crfstatus) {
+
+
+        List<FormsContract> list_form = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FormsTable._ID,
+                FormsTable.COLUMN_UID,
+                FormsTable.COLUMN_FORMDATE,
+                FormsTable.COLUMN_USER,
+                FormsTable.COLUMN_UC_ID,
+                FormsTable.COLUMN_village_ID,
+                FormsTable.COLUMN_ISTATUS,
+                FormsTable.COLUMN_ISTATUS88x,
+                FormsTable.COLUMN_END_TIME,
+                FormsTable.COLUMN_F1,
+                FormsTable.COLUMN_CRFA,
+                FormsTable.COLUMN_studyid,
+                FormsTable.COLUMN_crfcstatus,
+                FormsTable.COLUMN_F2,
+                FormsTable.COLUMN_F3,
+                FormsTable.COLUMN_FORMTYPE,
+                FormsTable.COLUMN_TALUKA_CODE,
+                FormsTable.COLUMN_GPSLAT,
+                FormsTable.COLUMN_GPSLNG,
+                FormsTable.COLUMN_GPSDATE,
+                FormsTable.COLUMN_GPSACC,
+                FormsTable.COLUMN_GPSELEV,
+                FormsTable.COLUMN_GPSTIME,
+                FormsTable.COLUMN_DEVICEID,
+                FormsTable.COLUMN_DEVICETAGID,
+                FormsTable.COLUMN_SYNCED,
+                FormsTable.COLUMN_SYNCED_DATE,
+                FormsTable.COLUMN_APP_VERSION,
+        };
+
+
+
+        String whereClause = FormsTable.COLUMN_crfcstatus + "=?";
+        String[] whereArgs = new String[]{crfstatus};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FormsTable._ID + " ASC";
+
+        FormsContract allFC = new FormsContract();
+        try {
+            c = db.query(
+                    FormsTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FormsContract fc = new FormsContract();
+                list_form.add(fc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return list_form;
+    }
+
+
+
+
     public int getsFormcount() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -395,6 +474,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_F1, fc.getF1());
         values.put(FormsTable.COLUMN_CRFA, fc.getCRFA());
         values.put(FormsTable.COLUMN_studyid, fc.getstudyid());
+        values.put(FormsTable.COLUMN_crfcstatus, fc.getcrfcstatus());
         values.put(FormsTable.COLUMN_F2, fc.getF2());
         values.put(FormsTable.COLUMN_F3, fc.getF3());
         values.put(FormsTable.COLUMN_GPSELEV, fc.getGpsElev());
@@ -534,6 +614,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_F1,
                 FormsTable.COLUMN_CRFA,
                 FormsTable.COLUMN_studyid,
+                FormsTable.COLUMN_crfcstatus,
                 FormsTable.COLUMN_F2,
                 FormsTable.COLUMN_F3,
                 FormsTable.COLUMN_FORMTYPE,
@@ -605,6 +686,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_F1,
                 FormsTable.COLUMN_CRFA,
                 FormsTable.COLUMN_studyid,
+                FormsTable.COLUMN_crfcstatus,
                 FormsTable.COLUMN_F2,
                 FormsTable.COLUMN_F3,
                 FormsTable.COLUMN_FORMTYPE,

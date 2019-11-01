@@ -39,6 +39,7 @@
         <activity android:name=".ui.SyncActivity" />
         <activity android:name=".ui.CRFBActivity" />
         <activity android:name=".ui.CRFAActivity" />
+        <activity android:name=".ui.CRFCActivity" />
 
 
         <activity android:name=".core.AndroidDatabaseManager" />

@@ -1,15 +1,25 @@
 package edu.aku.hassannaqvi.kmc_screening.ui;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -18,6 +28,8 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +40,7 @@ import edu.aku.hassannaqvi.kmc_screening.contracts.FormsContract;
 import edu.aku.hassannaqvi.kmc_screening.core.DatabaseHelper;
 import edu.aku.hassannaqvi.kmc_screening.core.MainApp;
 import edu.aku.hassannaqvi.kmc_screening.databinding.ActivityBBinding;
+import edu.aku.hassannaqvi.kmc_screening.databinding.ActivityCBinding;
 import edu.aku.hassannaqvi.kmc_screening.other.DiseaseCode;
 import edu.aku.hassannaqvi.kmc_screening.util.Util;
 import edu.aku.hassannaqvi.kmc_screening.validation.ValidatorClass;
@@ -36,175 +49,94 @@ import static edu.aku.hassannaqvi.kmc_screening.core.MainApp.fc;
 
 public class CRFCActivity extends AppCompatActivity {
 
-    private static final String TAG = "CRFBActivity";
-    ActivityBBinding bi;
+    private static final String TAG = "CRFCActivity";
+    ActivityCBinding bi;
     DatabaseHelper db;
+
+    RecyclerView mRecyclerView;
+    RecyclerView.Adapter mAdapter;
+    RecyclerView.LayoutManager mLayoutManager;
+
+    public  static boolean days_21;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-
-
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_b);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_c);
         bi.setCallback(this);
-
         db = new DatabaseHelper(this);
 
-//        setTitle(R.string.f9aHeading);
-        List<String> Dieascodelist = new ArrayList<>(DiseaseCode.HmDiseaseCode.keySet());
+        days_21=true;
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                (this, android.R.layout.select_dialog_item, Dieascodelist);
-        bi.crb12.setThreshold(1); //will start working from first character
-        bi.crb12.setAdapter(adapter);
+        get_data_recylceview("0");
 
 
-        setupViews();
+
     }
 
-    private void setupViews() {
+    public  void day21()
+    {
 
-        bi.crb01.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        get_data_recylceview("0");
+        days_21=true;
 
-            }
+    }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+    public  void day28()
+    {
+        get_data_recylceview("1");
 
-                if (s.toString().equals("")) {
-                    bi.checkDataLayout.setVisibility(View.GONE);
-                }
+        days_21=false;
 
-            }
+    }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+    public  void get_data_recylceview(String crfstatus)
+    {
+        // list here
+        List<String> list =getdata(crfstatus);
 
 
-        bi.btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (!bi.crb01.getText().toString().equals("")) {
-                     FormsContract fc = db.getsFormContract(bi.crb01.getText().toString());
-                    if (fc != null) {
-                        JSONModelCRFA crfa = JSONUtils.getModelFromJSON(fc.getCRFA(), JSONModelCRFA.class);
+        if(list == null)
+            return;
 
 
+        Collections.sort(list);
+        mRecyclerView = (RecyclerView) findViewById(R.id.list_survey_completed);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new SurveyCompletedCustomAdapter(this, list);
+        mRecyclerView.setAdapter(mAdapter);
 
-
-
-
-
-                        try
-                        {
-                            bi.crb02.setText(crfa.getCra02());
-                            bi.crb05.setText(crfa.getCra04());
-                            bi.crb06.setText(crfa.getCra05());
-
-                            bi.crb07a.setText(crfa.getCra06a());
-                            bi.crb07b.setText(crfa.getCra06b());
-                            bi.crb07c.setText(crfa.getCra06c());
-                            bi.crb07d.setText(crfa.getCra06d());
-
-                            bi.crb08.setText(crfa.getCra07());
-
-                            bi.crb09a.setText(crfa.getCra08a());
-                            bi.crb09b.setText(crfa.getCra08b());
-                            bi.crb09c.setText(crfa.getCra08c());
-
-                            if (crfa.getCra09().equals("1")) {
-                                bi.crb10a.setChecked(true);
-                            } else {
-                                bi.crb10b.setChecked(true);
-                            }
-
-                            bi.checkDataLayout.setVisibility(View.VISIBLE);
-
-                        }
-                        catch (Exception e)
-                        {
-                            bi.crb01.setError("No record Avilable for this Study ID");
-                            bi.crb01.requestFocus();
-
-                            bi.checkDataLayout.setVisibility(View.GONE);
-
-                        }
-
-
-
-                    }
-                    else {
-                        bi.crb01.setError("No record Avilable for this Study ID");
-                        bi.crb01.requestFocus();
-
-
-
-                    }
-
-                }
-
-            }
-        });
     }
 
 
 
-    public void BtnContinue() {
-        if (formValidation()) {
 
+    public  List<String> getdata(String crfstatus)
+    {
+        List<String> lst_string= new ArrayList<String>();
+        List<FormsContract> lst = db.getsFormContractCRFC(crfstatus);
+        if (lst!= null) {
 
+            for(FormsContract fc: lst)
+            {
 
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            Date DischargeDate = null;
-            Date PresntDate = null;
-            try {
-                DischargeDate = sdf.parse(bi.crb09a.getText()+"/"+ bi.crb09b.getText()+"/" +bi.crb09c.getText());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            if (System.currentTimeMillis() < DischargeDate.getTime()) {
+                JSONModelCRFA crfa = JSONUtils.getModelFromJSON(fc.getCRFA(), JSONModelCRFA.class);
+                String stringg="";
+                stringg=crfa.getCra01()+"-"+crfa.getCra02()+"-"+crfa.getCra04()+"-"+crfa.getCra05()+"-"+
+                        crfa.getCra03a()+"/"+ crfa.getCra03b()+"/" +crfa.getCra03c();
+                lst_string.add(stringg);
 
-                bi.crb09a.setError("Can not be greater then current date");
-                bi.crb09a.requestFocus();
-                return;
             }
 
 
-
-            try {
-                PresntDate = sdf.parse(bi.crb04a.getText()+"/"+ bi.crb04b.getText()+"/" +bi.crb04c.getText());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            if (PresntDate.getTime() > DischargeDate.getTime()) {
-
-                bi.crb09a.setError("Can not be greater then Presentation  date");
-                bi.crb09a.requestFocus();
-                return;
-            }
-
-
-
-
-            try {
-                SaveDraft();
-                if (UpdateDB()) {
-                    finish();
-                    startActivity(new Intent(getApplicationContext(), EndingActivity.class).putExtra("complete", true));
-                } else {
-                    Toast.makeText(this, "Error in updating db!!", Toast.LENGTH_SHORT).show();
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
         }
+
+        return lst_string;
     }
+
+
 
     private boolean UpdateDB() {
 
@@ -245,6 +177,7 @@ public class CRFCActivity extends AppCompatActivity {
         JSONObject CRFA = new JSONObject();
 
 
+        /*
         CRFA.put("crb01", bi.crb01.getText().toString());
 
         CRFA.put("crb02", bi.crb02.getText().toString());
@@ -297,24 +230,158 @@ public class CRFCActivity extends AppCompatActivity {
         fc.setstudyid(bi.crb01.getText().toString());
 
 
-    }
-
-    private boolean formValidation() {
-
-        return ValidatorClass.EmptyCheckingContainer(this, bi.GrpCRFB);
-
+*/
 
     }
 
 
-    public void BtnEnd() {
 
-        MainApp.endActivity(this, this);
-    }
+
+
 
 
     @Override
     public void onBackPressed() {
         Toast.makeText(this, "You can't go back.", Toast.LENGTH_SHORT).show();
+    }
+
+}
+
+class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
+
+    Context mContext;
+    List<String> mList;
+    public SurveyCompletedCustomAdapter(Context context, List<String> list){
+        mContext = context;
+        mList = list;
+    }
+
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.crfcitems, parent, false);
+        ViewHolder vh = new ViewHolder(v);
+        return vh;
+    }
+
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
+        final ViewHolder vh = (ViewHolder) holder;
+
+        //rejected items..
+       // if(mList.get(position).contains("-00")) {
+         //   vh.itemView.setBackgroundColor(Color.parseColor("#FFB7BC"));
+       // }
+
+
+
+        vh.studyid.setText(mList.get(position).split("-")[0]);
+
+        vh.opdnum.setText(mList.get(position).split("-")[1]);
+
+        vh.name.setText(mList.get(position).split("-")[2]);
+        vh.fname.setText(mList.get(position).split("-")[3]);
+
+        vh.serial.setText(position+1 +"");
+
+        String Pdate=mList.get(position).split("-")[4];
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date strDate=null;
+
+        Calendar c = Calendar.getInstance();
+
+
+
+        try {
+             strDate = sdf.parse(Pdate);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        c.setTime(strDate);
+
+
+        if(CRFCActivity.days_21==true) {
+            vh.txtdate.setText("Date Dute to Notify LHS");
+
+
+            c.add(Calendar.DATE, 23);
+
+
+                Pdate = sdf.format(c.getTime());
+
+            vh.date.setText(Pdate.toString());
+
+        }
+        else
+        {
+            vh.txtdate.setText("Date 28-Days Follow up Due");
+
+            c.add(Calendar.DATE, 31);
+
+            Pdate = sdf.format(c.getTime());
+
+        }
+
+        vh.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder b = new AlertDialog.Builder(mContext);
+                b.setTitle("Upload Interview");
+                b.setMessage("Do you want to upload this interview ");
+                b.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                      //  String memberId = vh.textName.getText().toString();
+
+
+                      //  String[] arrr=memberId.split("/");
+
+                      //  Global.global_id=arrr[0];
+
+                       // new Upload_request1(mContext).execute();
+                        //    new UploadSectionEAsync(mContext, "3").execute(); // irfan
+
+
+
+                    }
+                }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        // Intent intent = null;
+
+                        //   intent = new Intent(this, SurveyCompletedActivity.class);
+                    }
+                }).show();
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return mList.size();
+    }
+
+    class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView studyid, serial,name,fname,date,txtdate,opdnum;
+
+        public ViewHolder(View v) {
+            super(v);
+
+            studyid = (TextView) v.findViewById(R.id.studyid);
+            serial = (TextView) v.findViewById(R.id.serial);
+            name = (TextView) v.findViewById(R.id.name);
+            fname = (TextView) v.findViewById(R.id.fname);
+            txtdate = (TextView) v.findViewById(R.id.txtdate);
+            date = (TextView) v.findViewById(R.id.date);
+
+            opdnum = (TextView) v.findViewById(R.id.opdn);
+
+        }
     }
 }

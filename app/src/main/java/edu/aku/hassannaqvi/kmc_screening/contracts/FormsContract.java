@@ -46,6 +46,7 @@ public class FormsContract {
 
     private String CRFA = ""; //
     private String studyid = ""; //
+    private String crfcstatus = ""; //
 
     private String f2 = ""; //
     private String f3 = ""; //
@@ -102,6 +103,7 @@ public class FormsContract {
 
         this.CRFA = jsonObject.getString(FormsTable.COLUMN_CRFA);
         this.studyid = jsonObject.getString(FormsTable.COLUMN_studyid);
+        this.crfcstatus = jsonObject.getString(FormsTable.COLUMN_crfcstatus);
 
         this.f2 = jsonObject.getString(FormsTable.COLUMN_F2);
         this.f3 = jsonObject.getString(FormsTable.COLUMN_F3);
@@ -138,6 +140,7 @@ public class FormsContract {
 
         this.CRFA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_CRFA));
         this.studyid = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_studyid));
+        this.crfcstatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfcstatus));
 
         this.f2 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F2));
         this.f3 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F3));
@@ -429,9 +432,16 @@ public class FormsContract {
     public String getstudyid() {
         return studyid;
     }
+    public String getcrfcstatus() {
+        return crfcstatus;
+    }
 
     public void setstudyid(String studyid) {
         this.studyid = studyid;
+    }
+
+    public void setcrfcstatus(String crfcstatus) {
+        this.crfcstatus = crfcstatus;
     }
 
     public String getF2() {
@@ -468,6 +478,7 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_ISTATUSHH, this.istatusHH == null ? JSONObject.NULL : this.istatusHH);
         json.put(FormsTable.COLUMN_GPSELEV, this.gpsElev == null ? JSONObject.NULL : this.gpsElev);
         json.put(FormsTable.COLUMN_studyid, this.studyid == null ? JSONObject.NULL : this.studyid);
+        json.put(FormsTable.COLUMN_crfcstatus, this.crfcstatus == null ? JSONObject.NULL : this.crfcstatus);
 
         if (!this.f1.equals("")) {
 
@@ -533,6 +544,7 @@ public class FormsContract {
 
         public static final String COLUMN_CRFA = "crfa";
         public static final String COLUMN_studyid = "studyid";
+        public static final String COLUMN_crfcstatus = "crfcstatus";
 
         public static final String COLUMN_F2 = "f2";
         public static final String COLUMN_F3 = "f3";

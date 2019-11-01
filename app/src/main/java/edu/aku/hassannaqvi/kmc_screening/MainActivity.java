@@ -18,6 +18,7 @@ import edu.aku.hassannaqvi.kmc_screening.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.kmc_screening.other.DiseaseCode;
 import edu.aku.hassannaqvi.kmc_screening.ui.CRFAActivity;
 import edu.aku.hassannaqvi.kmc_screening.ui.CRFBActivity;
+import edu.aku.hassannaqvi.kmc_screening.ui.CRFCActivity;
 import edu.aku.hassannaqvi.kmc_screening.ui.SyncActivity;
 import edu.aku.hassannaqvi.kmc_screening.util.Util;
 
@@ -323,7 +324,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (type == 2) {
             cc = CRFBActivity.class;
         } else {
-            cc = CRFAActivity.class;
+            cc = CRFCActivity.class;
         }
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
             startActivity(new Intent(MainActivity.this, cc).putExtra(MainApp.formType, selectFormType(type)));
