@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.kmc_screening.ui;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,7 +19,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +55,7 @@ import static edu.aku.hassannaqvi.kmc_screening.core.MainApp.fc;
 public class CRFCActivity extends AppCompatActivity {
 
     private static final String TAG = "CRFCActivity";
-    ActivityCBinding bi;
+   public static ActivityCBinding bi;
     DatabaseHelper db;
 
     RecyclerView mRecyclerView;
@@ -95,6 +100,15 @@ public class CRFCActivity extends AppCompatActivity {
     {
         // list here
         List<String> list =getdata(crfstatus);
+
+        if(crfstatus=="0")
+        {
+            bi.btn21.setText("21 Days Follow-Up"+" ("+list.size()+")");
+        }
+        else
+        {
+            bi.btn48.setText("28 Days Follow-Up"+" ("+list.size()+")");
+        }
 
 
         if(list == null)
@@ -329,39 +343,277 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
         vh.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder b = new AlertDialog.Builder(mContext);
-                b.setTitle("Upload Interview");
-                b.setMessage("Do you want to upload this interview ");
-                b.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                      //  String memberId = vh.textName.getText().toString();
 
 
-                      //  String[] arrr=memberId.split("/");
+                if(CRFCActivity.days_21==true)
+                {
+                    String studyid=vh.studyid.getText().toString();
 
-                      //  Global.global_id=arrr[0];
+                    String datetotnotify=vh.date.getText().toString();
 
-                       // new Upload_request1(mContext).execute();
-                        //    new UploadSectionEAsync(mContext, "3").execute(); // irfan
+                    dialog21days(studyid,datetotnotify);
+                }
+                else
+                {
+                    String studyid=vh.studyid.getText().toString();
 
+                    String datetotnotify=vh.date.getText().toString();
 
-
-                    }
-                }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        // Intent intent = null;
-
-                        //   intent = new Intent(this, SurveyCompletedActivity.class);
-                    }
-                }).show();
+                    dialog28days(studyid,datetotnotify);
+                }
             }
         });
+
+
     }
 
+    public  void dialog21days(final String studyid, final String datetotnotify)
+    {
+        // 21 days
+        AlertDialog.Builder b = new AlertDialog.Builder(mContext);
+
+        final Dialog dialog = new Dialog(mContext);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.crfc21d);
+
+       final EditText day21=dialog.findViewById(R.id.day21);
+       final EditText month21=dialog.findViewById(R.id.month21);
+       final EditText year21=dialog.findViewById(R.id.year21);
+       final EditText lhscode=dialog.findViewById(R.id.lhscode);
+
+       final Button btncancel=dialog.findViewById(R.id.btn_End);
+       final Button btnok=dialog.findViewById(R.id.btn_Continue);
+
+
+
+
+        btncancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        btnok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+               // String studid=vh.
+                if(
+
+                                day21.getText().length()==0 ||
+                                month21.getText().length()==0 ||
+                                        lhscode.getText().length()==0 ||
+                                year21.getText().length()==0)
+                {
+
+                    Toast.makeText(mContext,"Please enter the data",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+
+                try {
+
+                    fc = new FormsContract();
+                    JSONObject CRFC = new JSONObject();
+
+                    CRFC.put("crc08", lhscode.getText().toString());
+                    CRFC.put("crc09a", day21.getText().toString());
+                    CRFC.put("crc09b", month21.getText().toString());
+                    CRFC.put("crc09c", year21.getText().toString());
+                    CRFC.put("crc10", datetotnotify);
+
+
+                    fc.setcrfc21(String.valueOf(CRFC));
+
+                    if (UpdateDBCRF21(studyid)) {
+
+                        Toast.makeText(mContext, "Updated", Toast.LENGTH_SHORT).show();
+
+
+
+                        CRFCActivity.bi.btn21.performClick();
+
+                        dialog.dismiss();
+
+                    } else {
+                       Toast.makeText(mContext, "Error in updating db!!", Toast.LENGTH_SHORT).show();
+                   }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
+        dialog.show();
+
+    }
+
+
+    private boolean UpdateDBCRF21(String studyid) {
+        DatabaseHelper db = new DatabaseHelper(mContext);
+
+        int updcount = db.updatecrf21(studyid);
+
+        if (updcount == 1) {
+
+            return true;
+        } else {
+            Toast.makeText(mContext, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+    }
+
+    private boolean UpdateDBCRF28(String studyid) {
+        DatabaseHelper db = new DatabaseHelper(mContext);
+
+        int updcount = db.updatecrf28(studyid);
+
+        if (updcount == 1) {
+
+            return true;
+        } else {
+            Toast.makeText(mContext, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+    }
+
+
+    public  void dialog28days(final String studyid, final String date28days)
+    {
+        // 28 days
+        AlertDialog.Builder b = new AlertDialog.Builder(mContext);
+
+        final Dialog dialog = new Dialog(mContext);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.crfc28d);
+
+        final RadioButton crfc12a,crfc12b,crfc12c,crfc12d,crfc13a,crfc13b;
+
+        crfc12a=dialog.findViewById(R.id.crfc12a);
+        crfc12b=dialog.findViewById(R.id.crfc12b);
+        crfc12c=dialog.findViewById(R.id.crfc12c);
+        crfc12d=dialog.findViewById(R.id.crfc12d);
+
+        crfc13a=dialog.findViewById(R.id.crfc13a);
+        crfc13b=dialog.findViewById(R.id.crfc13b);
+
+
+        Button btncancel=dialog.findViewById(R.id.btn_End);
+        Button btnok=dialog.findViewById(R.id.btn_Continue);
+
+
+        btncancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        btnok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                // String studid=vh.
+                if(
+                       !crfc12a.isChecked() &
+                               !crfc12b.isChecked() &
+                               !crfc12c.isChecked() &
+                               !crfc12d.isChecked()
+                        )
+                {
+
+                    Toast.makeText(mContext,"Please select  the Discharge",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if(
+
+                                !crfc13a.isChecked() &
+                                !crfc13b.isChecked() )
+                {
+
+                    Toast.makeText(mContext,"Please select status ",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+
+                try {
+
+                    fc = new FormsContract();
+                    JSONObject CRFC = new JSONObject();
+
+
+                    String crf12="0";
+                    if(crfc12a.isChecked())
+                    {
+                        crf12="1";
+                    }
+                    else if(crfc12b.isChecked())
+                    {
+                        crf12="2";
+                    }
+                    else if(crfc12c.isChecked())
+                    {
+                        crf12="3";
+                    }
+                    else if(crfc12d.isChecked())
+                    {
+                        crf12="4";
+                    }
+                    else
+
+                    {  crf12="0";
+
+                    }
+
+
+                    String crf13="0";
+                    if(crfc13a.isChecked())
+                    {
+                        crf13="1";
+                    }
+                    else if(crfc13b.isChecked())
+                    {
+                        crf13="2";
+                    }
+
+
+
+                    CRFC.put("crc12", crf12);
+                    CRFC.put("crc13", crf13);
+                    CRFC.put("crc11", date28days);
+
+
+
+                    fc.setcrfc21(String.valueOf(CRFC));
+
+                    if (UpdateDBCRF28(studyid)) {
+
+                        Toast.makeText(mContext, "Updated", Toast.LENGTH_SHORT).show();
+
+                        CRFCActivity.bi.btn48.performClick();
+                        dialog.dismiss();
+
+                    } else {
+                        Toast.makeText(mContext, "Error in updating db!!", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
+        dialog.show();
+
+    }
     @Override
     public int getItemCount() {
         return mList.size();

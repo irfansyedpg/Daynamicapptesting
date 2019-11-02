@@ -147,9 +147,7 @@ public class CRFAActivity extends AppCompatActivity {
 
         JSONObject f1 = new JSONObject();
         Util.setGPS(this);
-
         JSONObject CRFA = new JSONObject();
-
 
         CRFA.put("cra01", bi.cra01.getText().toString());
 

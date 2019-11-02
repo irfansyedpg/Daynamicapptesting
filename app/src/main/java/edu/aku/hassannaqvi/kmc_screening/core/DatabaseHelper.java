@@ -84,6 +84,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormsTable.COLUMN_CRFA + " TEXT," +
             FormsTable.COLUMN_studyid + " TEXT," +
             FormsTable.COLUMN_crfcstatus + " TEXT," +
+            FormsTable.COLUMN_crfc21 + " TEXT," +
+            FormsTable.COLUMN_crfc28 + " TEXT," +
             FormsTable.COLUMN_F2 + " TEXT," +
             FormsTable.COLUMN_F3 + " TEXT," +
             FormsTable.COLUMN_END_TIME + " TEXT," +
@@ -286,6 +288,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_CRFA,
                 FormsTable.COLUMN_studyid,
                 FormsTable.COLUMN_crfcstatus,
+                FormsTable.COLUMN_crfc21,
+                FormsTable.COLUMN_crfc28,
                 FormsTable.COLUMN_F2,
                 FormsTable.COLUMN_F3,
                 FormsTable.COLUMN_FORMTYPE,
@@ -475,6 +479,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_CRFA, fc.getCRFA());
         values.put(FormsTable.COLUMN_studyid, fc.getstudyid());
         values.put(FormsTable.COLUMN_crfcstatus, fc.getcrfcstatus());
+        values.put(FormsTable.COLUMN_crfc21, fc.getcrfc21());
+        values.put(FormsTable.COLUMN_crfc28, fc.getcrfc28());
         values.put(FormsTable.COLUMN_F2, fc.getF2());
         values.put(FormsTable.COLUMN_F3, fc.getF3());
         values.put(FormsTable.COLUMN_GPSELEV, fc.getGpsElev());
@@ -615,6 +621,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_CRFA,
                 FormsTable.COLUMN_studyid,
                 FormsTable.COLUMN_crfcstatus,
+                FormsTable.COLUMN_crfc21,
+                FormsTable.COLUMN_crfc28,
                 FormsTable.COLUMN_F2,
                 FormsTable.COLUMN_F3,
                 FormsTable.COLUMN_FORMTYPE,
@@ -687,6 +695,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_CRFA,
                 FormsTable.COLUMN_studyid,
                 FormsTable.COLUMN_crfcstatus,
+                FormsTable.COLUMN_crfc21,
+                FormsTable.COLUMN_crfc28,
                 FormsTable.COLUMN_F2,
                 FormsTable.COLUMN_F3,
                 FormsTable.COLUMN_FORMTYPE,
@@ -902,6 +912,45 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // Which row to update, based on the ID
         String selection = FormsTable._ID + " =? ";
         String[] selectionArgs = {String.valueOf(MainApp.fc.get_ID())};
+
+        int count = db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+    public int updatecrf21(String studyid) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormsTable.COLUMN_crfc21, MainApp.fc.getcrfc21());
+        values.put(FormsTable.COLUMN_crfcstatus, "1");
+
+// Which row to update, based on the ID
+        String selection = FormsTable.COLUMN_studyid + " =? ";
+        String[] selectionArgs = {studyid};
+
+        int count = db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        return count;
+    }
+
+
+    public int updatecrf28(String studyid) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormsTable.COLUMN_crfc28, MainApp.fc.getcrfc28());
+        values.put(FormsTable.COLUMN_crfcstatus, "2");
+
+// Which row to update, based on the ID
+        String selection = FormsTable.COLUMN_studyid + " =? ";
+        String[] selectionArgs = {studyid};
 
         int count = db.update(FormsTable.TABLE_NAME,
                 values,

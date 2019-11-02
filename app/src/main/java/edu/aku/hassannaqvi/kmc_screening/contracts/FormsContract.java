@@ -47,6 +47,9 @@ public class FormsContract {
     private String CRFA = ""; //
     private String studyid = ""; //
     private String crfcstatus = ""; //
+    private String crfc21 = ""; //
+    private String crfc28 = ""; //
+
 
     private String f2 = ""; //
     private String f3 = ""; //
@@ -105,6 +108,7 @@ public class FormsContract {
         this.studyid = jsonObject.getString(FormsTable.COLUMN_studyid);
         this.crfcstatus = jsonObject.getString(FormsTable.COLUMN_crfcstatus);
 
+
         this.f2 = jsonObject.getString(FormsTable.COLUMN_F2);
         this.f3 = jsonObject.getString(FormsTable.COLUMN_F3);
         this.formType = jsonObject.getString(FormsTable.COLUMN_FORMTYPE);
@@ -141,6 +145,8 @@ public class FormsContract {
         this.CRFA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_CRFA));
         this.studyid = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_studyid));
         this.crfcstatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfcstatus));
+        this.crfc21 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfc21));
+        this.crfc28 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfc28));
 
         this.f2 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F2));
         this.f3 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F3));
@@ -436,12 +442,27 @@ public class FormsContract {
         return crfcstatus;
     }
 
+    public String getcrfc21() {
+        return crfc21;
+    }
+    public String getcrfc28() {
+        return crfc28;
+    }
+
     public void setstudyid(String studyid) {
         this.studyid = studyid;
     }
 
     public void setcrfcstatus(String crfcstatus) {
         this.crfcstatus = crfcstatus;
+    }
+
+    public void setcrfc21(String crfc21) {
+        this.crfc21 = crfc21;
+    }
+
+    public void setcrfc28(String crfc28) {
+        this.crfc28 = crfc28;
     }
 
     public String getF2() {
@@ -479,7 +500,20 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_GPSELEV, this.gpsElev == null ? JSONObject.NULL : this.gpsElev);
         json.put(FormsTable.COLUMN_studyid, this.studyid == null ? JSONObject.NULL : this.studyid);
         json.put(FormsTable.COLUMN_crfcstatus, this.crfcstatus == null ? JSONObject.NULL : this.crfcstatus);
+        
 
+
+        if (!this.crfc21.equals("")) {
+
+            json.put(FormsTable.COLUMN_crfc21, this.crfc21.equals("") ? JSONObject.NULL : new JSONObject(this.crfc21));
+        }
+
+        if (!this.crfc28.equals("")) {
+
+            json.put(FormsTable.COLUMN_crfc21, this.crfc28.equals("") ? JSONObject.NULL : new JSONObject(this.crfc28));
+        }
+
+        // when need to conver to json
         if (!this.f1.equals("")) {
 
             json.put(FormsTable.COLUMN_F1, this.f1.equals("") ? JSONObject.NULL : new JSONObject(this.f1));
@@ -545,6 +579,8 @@ public class FormsContract {
         public static final String COLUMN_CRFA = "crfa";
         public static final String COLUMN_studyid = "studyid";
         public static final String COLUMN_crfcstatus = "crfcstatus";
+        public static final String COLUMN_crfc21 = "crfc21";
+        public static final String COLUMN_crfc28 = "crfc28";
 
         public static final String COLUMN_F2 = "f2";
         public static final String COLUMN_F3 = "f3";
