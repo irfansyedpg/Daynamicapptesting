@@ -59,7 +59,7 @@ public class CRFAActivity extends AppCompatActivity {
 
 
         db = new DatabaseHelper(this);
-        int study_id= db.getsFormcount();
+        int study_id=Integer.parseInt(db.getsFormcount());
         study_id=study_id+1;
         if(study_id<10)
         {

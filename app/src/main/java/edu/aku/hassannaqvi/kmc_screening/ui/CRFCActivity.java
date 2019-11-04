@@ -50,6 +50,7 @@ import edu.aku.hassannaqvi.kmc_screening.other.DiseaseCode;
 import edu.aku.hassannaqvi.kmc_screening.util.Util;
 import edu.aku.hassannaqvi.kmc_screening.validation.ValidatorClass;
 
+import static android.content.Context.MODE_PRIVATE;
 import static edu.aku.hassannaqvi.kmc_screening.core.MainApp.fc;
 
 public class CRFCActivity extends AppCompatActivity {
@@ -152,101 +153,7 @@ public class CRFCActivity extends AppCompatActivity {
 
 
 
-    private boolean UpdateDB() {
 
-        DatabaseHelper db = new DatabaseHelper(this);
-
-        // 2. insert form
-        Long rowId;
-        rowId = db.addForm(fc);
-        if (rowId > 0) {
-            fc.set_ID(String.valueOf(rowId));
-            fc.setUID((fc.getDeviceID() + fc.get_ID()));
-            db.updateFormID(fc);
-            return true;
-        } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-            return false;
-
-        }
-    }
-
-    private void SaveDraft() throws JSONException {
-
-
-        fc = new FormsContract();
-        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
-        fc.setTagID(sharedPref.getString("tagName", null));
-        fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
-        fc.setDeviceID(MainApp.deviceId);
-        fc.setUser(MainApp.userName);
-
-        fc.setAppversion(MainApp.versionName + "." + MainApp.versionCode);
-
-        JSONObject f1 = new JSONObject();
-        Util.setGPS(this);
-        fc.setF1(String.valueOf(f1));
-
-
-        JSONObject CRFA = new JSONObject();
-
-
-        /*
-        CRFA.put("crb01", bi.crb01.getText().toString());
-
-        CRFA.put("crb02", bi.crb02.getText().toString());
-        CRFA.put("crb03", bi.crb03.getText().toString());
-
-        CRFA.put("crb04a", bi.crb04a.getText().toString());
-        CRFA.put("crb04b", bi.crb04b.getText().toString());
-        CRFA.put("crb04c", bi.crb04c.getText().toString());
-
-        CRFA.put("crb05", bi.crb05.getText().toString());
-
-        CRFA.put("crb06", bi.crb06.getText().toString());
-
-        CRFA.put("crb07a", bi.crb07a.getText().toString());
-        CRFA.put("crb07b", bi.crb07b.getText().toString());
-        CRFA.put("crb07c", bi.crb07c.getText().toString());
-        CRFA.put("crb07d", bi.crb07d.getText().toString());
-
-        CRFA.put("crb08", bi.crb08.getText().toString());
-
-        CRFA.put("crb09a", bi.crb09a.getText().toString());
-        CRFA.put("crb09b", bi.crb09b.getText().toString());
-        CRFA.put("crb09c", bi.crb09c.getText().toString());
-
-        CRFA.put("crb10",
-                bi.crb10a.isChecked() ? "1"
-                        : bi.crb10b.isChecked() ? "2"
-                        : "0");
-
-        CRFA.put("crb11", bi.crb11.getText().toString());
-
-        CRFA.put("crb12", DiseaseCode.HmDiseaseCode.get(bi.crb12.getText().toString()));
-
-
-        CRFA.put("crb13",
-                bi.crb13a.isChecked() ? "1"
-                        : bi.crb13b.isChecked() ? "2"
-                        : bi.crb13c.isChecked() ? "3"
-                        : bi.crb13d.isChecked() ? "4"
-                        : "0");
-
-        CRFA.put("crb14a", bi.crb14a.getText().toString());
-        CRFA.put("crb14b", bi.crb14b.getText().toString());
-        CRFA.put("crb14c", bi.crb14c.getText().toString());
-
-
-        fc.setCRFA(String.valueOf(CRFA));
-
-        fc.setFormType("CRFB");
-        fc.setstudyid(bi.crb01.getText().toString());
-
-
-*/
-
-    }
 
 
 
@@ -415,10 +322,21 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
                     return;
                 }
 
+                fc = new FormsContract();
+                SharedPreferences sharedPref =mContext. getSharedPreferences("tagName", MODE_PRIVATE);
+                fc.setTagID(sharedPref.getString("tagName", null));
+                fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
+                fc.setDeviceID(MainApp.deviceId);
+                fc.setUser(MainApp.userName);
 
+                fc.setAppversion(MainApp.versionName + "." + MainApp.versionCode);
+
+                JSONObject f1 = new JSONObject();
+                Util.setGPS(mContext);
+                fc.setF1(String.valueOf(f1));
                 try {
 
-                    fc = new FormsContract();
+
                     JSONObject CRFC = new JSONObject();
 
                     CRFC.put("crc08", lhscode.getText().toString());
@@ -427,8 +345,11 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
                     CRFC.put("crc09c", year21.getText().toString());
                     CRFC.put("crc10", datetotnotify);
 
+                    CRFC.put("crc10", datetotnotify);
+                    fc.setFormType("CRFC21");
 
-                    fc.setcrfc21(String.valueOf(CRFC));
+
+                    fc.setCRFA(String.valueOf(CRFC));
 
                     if (UpdateDBCRF21(studyid)) {
 
@@ -457,10 +378,15 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
 
 
     private boolean UpdateDBCRF21(String studyid) {
+
+
+
+
         DatabaseHelper db = new DatabaseHelper(mContext);
 
-        int updcount = db.updatecrf21(studyid);
 
+
+        /*
         if (updcount == 1) {
 
             return true;
@@ -469,19 +395,48 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
             return false;
         }
 
-    }
+        */
 
-    private boolean UpdateDBCRF28(String studyid) {
-        DatabaseHelper db = new DatabaseHelper(mContext);
+        // new things
 
-        int updcount = db.updatecrf28(studyid);
 
-        if (updcount == 1) {
+        // 2. insert form
+        Long rowId;
+        rowId = db.addForm(fc);
+        if (rowId > 0) {
+            fc.set_ID(String.valueOf(rowId));
+            fc.setUID((fc.getDeviceID() + fc.get_ID()));
+            db.updateFormID(fc);
+
+            int updcount = db.updatecrf21(studyid);
 
             return true;
         } else {
             Toast.makeText(mContext, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
+
+        }
+
+    }
+
+    private boolean UpdateDBCRF28(String studyid) {
+        DatabaseHelper db = new DatabaseHelper(mContext);
+
+
+        Long rowId;
+        rowId = db.addForm(fc);
+        if (rowId > 0) {
+            fc.set_ID(String.valueOf(rowId));
+            fc.setUID((fc.getDeviceID() + fc.get_ID()));
+            db.updateFormID(fc);
+
+            int updcount = db.updatecrf28(studyid);
+
+            return true;
+        } else {
+            Toast.makeText(mContext, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+
         }
 
     }
@@ -547,9 +502,22 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
                 }
 
 
+                fc = new FormsContract();
+                SharedPreferences sharedPref =mContext. getSharedPreferences("tagName", MODE_PRIVATE);
+                fc.setTagID(sharedPref.getString("tagName", null));
+                fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
+                fc.setDeviceID(MainApp.deviceId);
+                fc.setUser(MainApp.userName);
+
+                fc.setAppversion(MainApp.versionName + "." + MainApp.versionCode);
+
+                JSONObject f1 = new JSONObject();
+                Util.setGPS(mContext);
+                fc.setF1(String.valueOf(f1));
+
                 try {
 
-                    fc = new FormsContract();
+
                     JSONObject CRFC = new JSONObject();
 
 
@@ -593,9 +561,11 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
                     CRFC.put("crc13", crf13);
                     CRFC.put("crc11", date28days);
 
+                    fc.setFormType("CRFC28");
 
 
-                    fc.setcrfc28(String.valueOf(CRFC));
+
+                    fc.setCRFA(String.valueOf(CRFC));
 
                     if (UpdateDBCRF28(studyid)) {
 

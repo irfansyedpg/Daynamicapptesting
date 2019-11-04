@@ -80,7 +80,10 @@ public class SyncActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Toast.makeText(SyncActivity.this, "Start Uploading Data", Toast.LENGTH_SHORT).show();
-                syncServerCRFA();
+                syncServerCRFA("CRFA",FormsContract.FormsTable._URL); // sycn A
+                syncServerCRFA("CRFB",FormsContract.FormsTable._URL2); // sycn B
+                syncServerCRFA("CRFC21",FormsContract.FormsTable._URL3); // sycn C
+                syncServerCRFA("CRFC28",FormsContract.FormsTable._URL4); // sycn D
                 syncServerCRFB();
 
                 syncServerCRFC21();
@@ -133,7 +136,7 @@ public class SyncActivity extends AppCompatActivity {
     }
 
 
-    public void syncServerCRFA() {
+    public void syncServerCRFA(String CRF_type, String url ) {
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -153,8 +156,9 @@ public class SyncActivity extends AppCompatActivity {
                     "Forms",
                     "updateSyncedForms",
                     FormsContract.class,
-                    MainApp._HOST_URL + FormsContract.FormsTable._URL,
-                    db.getUnsyncedFormsCRF("CRFA"), 0, uploadListAdapter, uploadlist
+                    //MainApp._HOST_URL + FormsContract.FormsTable._URL,
+                     MainApp._HOST_URL + url,
+                    db.getUnsyncedFormsCRF(CRF_type), 0, uploadListAdapter, uploadlist
             ).execute();
 //            if (uploadlistActivityCreated) {
 //                uploadmodel = new SyncModel();

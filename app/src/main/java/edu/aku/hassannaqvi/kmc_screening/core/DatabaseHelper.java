@@ -313,7 +313,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-        String whereClause ="f_Type='CRFA' and "+ FormsTable.COLUMN_crfcstatus + "=?";
+        String whereClause =" f_Type='CRFA' and "+ FormsTable.COLUMN_crfcstatus + "=?";
         String[] whereArgs = new String[]{crfstatus};
         String groupBy = null;
         String having = null;
@@ -350,11 +350,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    public int getsFormcount() {
+    public String getsFormcount() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                FormsTable._ID,
+                FormsTable.COLUMN_studyid,
         };
 
 
@@ -362,9 +362,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
-
+        String name="0";
         String orderBy =
-                FormsTable._ID + " ASC";
+                FormsTable.COLUMN_studyid + " ASC";
 
         FormsContract allFC = new FormsContract();
         try {
@@ -378,9 +378,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
 
+
             while (c.moveToNext()) {
                // FormsContract fc = new FormsContract();
                // allFC = fc.Hydrate(c);
+                name=c.getString(c.getColumnIndex(FormsTable.COLUMN_studyid));
 
             }
         } finally {
@@ -391,7 +393,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.close();
             }
         }
-        return   c.getCount();
+        return     name;
     }
 
     public List<VillagesContract> getVillages(String id) {
@@ -717,7 +719,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_APP_VERSION,
 
         };
-        String whereClause = "("+FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " = '' ) and f_Type='"+formtype+"'";
+        String whereClause = "(" + FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " = '' ) and f_Type='" + formtype + "'";
+
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
@@ -769,10 +772,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_ISTATUS88x,
                 FormsTable.COLUMN_END_TIME,
             //    FormsTable.COLUMN_F1,
-              //  FormsTable.COLUMN_CRFA,
+                FormsTable.COLUMN_CRFA,
                 FormsTable.COLUMN_studyid,
              //   FormsTable.COLUMN_crfcstatus,
-                FormsTable.COLUMN_crfc21,
+              //  FormsTable.COLUMN_crfc21,
               //  FormsTable.COLUMN_crfc28,
 
                 FormsTable.COLUMN_FORMTYPE,
@@ -1075,7 +1078,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(FormsTable.COLUMN_crfc21, MainApp.fc.getcrfc21());
+     //   values.put(FormsTable.COLUMN_crfc21, MainApp.fc.getcrfc21());
         values.put(FormsTable.COLUMN_crfcstatus, "1");
 
 // Which row to update, based on the ID
@@ -1095,7 +1098,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(FormsTable.COLUMN_crfc28, MainApp.fc.getcrfc28());
+       // values.put(FormsTable.COLUMN_crfc28, MainApp.fc.getcrfc28());
         values.put(FormsTable.COLUMN_crfcstatus, "2");
 
 // Which row to update, based on the ID

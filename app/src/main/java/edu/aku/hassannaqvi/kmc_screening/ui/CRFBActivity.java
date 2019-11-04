@@ -165,14 +165,14 @@ public class CRFBActivity extends AppCompatActivity {
 
 
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date PresentationDate = null;
             Date DischargeDate = null;
-            Date PresntDate = null;
             try {
-                DischargeDate = sdf.parse(bi.crb04a.getText()+"/"+ bi.crb04b.getText()+"/" +bi.crb04c.getText());
+                PresentationDate = sdf.parse(bi.crb04a.getText()+"/"+ bi.crb04b.getText()+"/" +bi.crb04c.getText());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            if (System.currentTimeMillis() < DischargeDate.getTime()) {
+            if (System.currentTimeMillis() < PresentationDate.getTime()) {
 
                 bi.crb04a.setError("Can not be greater then current date");
                 bi.crb04a.requestFocus();
@@ -183,11 +183,11 @@ public class CRFBActivity extends AppCompatActivity {
 
 
             try {
-                PresntDate = sdf.parse(bi.crb14a.getText()+"/"+ bi.crb14b.getText()+"/" +bi.crb14c.getText());
+                DischargeDate = sdf.parse(bi.crb14a.getText()+"/"+ bi.crb14b.getText()+"/" +bi.crb14c.getText());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            if (PresntDate.getTime() > DischargeDate.getTime()) {
+            if (DischargeDate.getTime() > PresentationDate.getTime()) {
 
                 bi.crb14a.setError("Can not be greater then Presentation  date");
                 bi.crb14a.requestFocus();
