@@ -602,5 +602,7 @@ public class FormsContract {
         public static String _URL = "forms.php";
 
         public static String _URL2 = "forms2.php";
+        public static String _URL3 = "forms3.php";
+        public static String _URL4 = "forms4.php";
     }
 }

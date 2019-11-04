@@ -82,6 +82,10 @@ public class SyncActivity extends AppCompatActivity {
                 Toast.makeText(SyncActivity.this, "Start Uploading Data", Toast.LENGTH_SHORT).show();
                 syncServerCRFA();
                 syncServerCRFB();
+
+                syncServerCRFC21();
+                syncServerCRFC28();
+
             }
         });
         setAdapter();
@@ -230,6 +234,111 @@ public class SyncActivity extends AppCompatActivity {
         }
 
     }
+
+
+    public void syncServerCRFC21() {
+
+        // Require permissions INTERNET & ACCESS_NETWORK_STATE
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+
+            DatabaseHelper db = new DatabaseHelper(this);
+
+            if (uploadlistActivityCreated) {
+                uploadmodel = new SyncModel();
+                uploadmodel.setstatusID(0);
+                uploadlist.add(uploadmodel);
+            }
+            new SyncAllData(
+                    this,
+                    "Forms",
+                    "updateSyncedForms",
+                    FormsContract.class,
+                    MainApp._HOST_URL + FormsContract.FormsTable._URL3,
+                    db.getUnsyncedFormsCRFC21(), 0, uploadListAdapter, uploadlist
+            ).execute();
+//            if (uploadlistActivityCreated) {
+//                uploadmodel = new SyncModel();
+//                uploadmodel.setstatusID(0);
+//                uploadlist.add(uploadmodel);
+//            }
+//            new SyncAllData(
+//                    this,
+//                    "Family Members",
+//                    "updateSyncedFamilyMembers",
+//                    FormsContract.class,
+//                    MainApp._HOST_URL + FamilyMembersContract.familyMembers._URL,
+//                    db.getUnsyncedFamilyMember(), 1, uploadListAdapter, uploadlist
+//            ).execute();
+            uploadlistActivityCreated = false;
+
+            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = syncPref.edit();
+
+            editor.putString("LastUpSyncServer", dtToday);
+
+            editor.apply();
+
+        } else {
+            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    public void syncServerCRFC28() {
+
+        // Require permissions INTERNET & ACCESS_NETWORK_STATE
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+
+            DatabaseHelper db = new DatabaseHelper(this);
+
+            if (uploadlistActivityCreated) {
+                uploadmodel = new SyncModel();
+                uploadmodel.setstatusID(0);
+                uploadlist.add(uploadmodel);
+            }
+            new SyncAllData(
+                    this,
+                    "Forms",
+                    "updateSyncedForms",
+                    FormsContract.class,
+                    MainApp._HOST_URL + FormsContract.FormsTable._URL4,
+                    db.getUnsyncedFormsCRFC28(), 0, uploadListAdapter, uploadlist
+            ).execute();
+//            if (uploadlistActivityCreated) {
+//                uploadmodel = new SyncModel();
+//                uploadmodel.setstatusID(0);
+//                uploadlist.add(uploadmodel);
+//            }
+//            new SyncAllData(
+//                    this,
+//                    "Family Members",
+//                    "updateSyncedFamilyMembers",
+//                    FormsContract.class,
+//                    MainApp._HOST_URL + FamilyMembersContract.familyMembers._URL,
+//                    db.getUnsyncedFamilyMember(), 1, uploadListAdapter, uploadlist
+//            ).execute();
+            uploadlistActivityCreated = false;
+
+            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = syncPref.edit();
+
+            editor.putString("LastUpSyncServer", dtToday);
+
+            editor.apply();
+
+        } else {
+            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 
     public void dbBackup() {
 
