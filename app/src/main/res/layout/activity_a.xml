@@ -172,7 +172,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/cra03c"
 
-                        app:maxValue="2019"
+                        app:maxValue="2020"
                         app:minValue="2018"
                         app:type="range" />
 
@@ -276,7 +276,6 @@
                         style="@style/textInput"
                         android:inputType="textPersonName"
 
-                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ / -"
 
                         android:hint="@string/cra06d" />
                 </LinearLayout>
@@ -359,7 +358,7 @@
                         android:hint="@string/cra08c"
                         android:maxLength="2"
 
-                        app:maxValue="99"
+                        app:maxValue="14"
                         app:minValue="0"
                         app:type="range" />
 
@@ -456,6 +455,34 @@
 
                     <android.support.v7.widget.AppCompatAutoCompleteTextView
                         android:id="@+id/cra11"
+                        style="@style/textInput"
+                        android:hint="@string/cra11"
+                        android:inputType="textPersonName" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <!--cra11b-->
+
+            <android.support.v7.widget.CardView style="@style/cardView">
+
+
+                <LinearLayout style="@style/linearlayout_view_wt_bound">
+
+
+
+                    <TextView
+                        style="@style/i_q_textview"
+                        android:text="cra11" />
+
+                    <TextView
+                        style="@style/i_textview"
+                        android:text="@string/cra11" />
+
+
+                    <android.support.v7.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/cra11b"
                         style="@style/textInput"
                         android:hint="@string/cra11"
                         android:inputType="textPersonName" />

@@ -253,11 +253,14 @@ public class CRFCActivity extends AppCompatActivity {
 
 
 
-
+/*
     @Override
     public void onBackPressed() {
         Toast.makeText(this, "You can't go back.", Toast.LENGTH_SHORT).show();
     }
+
+
+ */
 
 }
 
@@ -337,6 +340,7 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
             c.add(Calendar.DATE, 31);
 
             Pdate = sdf.format(c.getTime());
+            vh.date.setText(Pdate.toString());
 
         }
 
@@ -591,7 +595,7 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
 
 
 
-                    fc.setcrfc21(String.valueOf(CRFC));
+                    fc.setcrfc28(String.valueOf(CRFC));
 
                     if (UpdateDBCRF28(studyid)) {
 

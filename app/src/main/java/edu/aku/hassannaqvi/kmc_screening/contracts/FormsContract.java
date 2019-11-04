@@ -130,7 +130,7 @@ public class FormsContract {
 
     }
 
-    public FormsContract Hydrate(Cursor cursor) {
+    public FormsContract HydrateCRFAB(Cursor cursor) {
         this._ID = cursor.getString(cursor.getColumnIndex(FormsTable._ID));
         this._UID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));
         this.uc = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UC_ID));
@@ -140,16 +140,16 @@ public class FormsContract {
         this.istatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS));
         this.istatus88x = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS88x));
         this.gpsElev = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSELEV));
-        this.f1 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F1));
+       // this.f1 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F1));
 
         this.CRFA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_CRFA));
         this.studyid = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_studyid));
         this.crfcstatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfcstatus));
-        this.crfc21 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfc21));
-        this.crfc28 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfc28));
+     //   this.crfc21 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfc21));
+       // this.crfc28 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfc28));
 
-        this.f2 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F2));
-        this.f3 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F3));
+     //   this.f2 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F2));
+      //  this.f3 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F3));
         this.formType = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMTYPE));
         this.talukdaCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_TALUKA_CODE));
         this.endtime = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_END_TIME));
@@ -169,6 +169,127 @@ public class FormsContract {
         return this;
 
     }
+
+    public FormsContract HydrateCRF21(Cursor cursor) {
+        this._ID = cursor.getString(cursor.getColumnIndex(FormsTable._ID));
+        this._UID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));
+        this.uc = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UC_ID));
+        this.village = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_village_ID));
+        this.formDate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMDATE));
+        this.userr = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_USER));
+        this.istatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS));
+        this.istatus88x = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS88x));
+        this.gpsElev = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSELEV));
+       // this.f1 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F1));
+
+        //this.CRFA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_CRFA));
+        this.studyid = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_studyid));
+        //this.crfcstatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfcstatus));
+          this.crfc21 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfc21));
+       //  this.crfc28 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfc28));
+
+//        this.f2 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F2));
+  //      this.f3 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F3));
+        this.formType = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMTYPE));
+        this.talukdaCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_TALUKA_CODE));
+        this.endtime = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_END_TIME));
+        this.gpsLat = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLAT));
+        this.gpsLng = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLNG));
+        this.gpsDT = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSDATE));
+        this.gpsAcc = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSACC));
+        this.gpsTime = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSTIME));
+        this.deviceID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICEID));
+        this.devicetagID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICETAGID));
+        this.synced = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SYNCED));
+        this.synced_date = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SYNCED_DATE));
+        this.appversion = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_APP_VERSION));
+
+        // TODO:
+
+        return this;
+
+    }
+
+    public FormsContract HydrateCRF28(Cursor cursor) {
+        this._ID = cursor.getString(cursor.getColumnIndex(FormsTable._ID));
+        this._UID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));
+        this.uc = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UC_ID));
+        this.village = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_village_ID));
+        this.formDate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMDATE));
+        this.userr = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_USER));
+        this.istatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS));
+        this.istatus88x = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS88x));
+        this.gpsElev = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSELEV));
+ //       this.f1 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F1));
+
+        //this.CRFA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_CRFA));
+        this.studyid = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_studyid));
+        //this.crfcstatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfcstatus));
+       // this.crfc21 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfc21));
+         this.crfc28 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfc28));
+
+      //  this.f2 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F2));
+       // this.f3 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F3));
+        this.formType = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMTYPE));
+        this.talukdaCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_TALUKA_CODE));
+        this.endtime = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_END_TIME));
+        this.gpsLat = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLAT));
+        this.gpsLng = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLNG));
+        this.gpsDT = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSDATE));
+        this.gpsAcc = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSACC));
+        this.gpsTime = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSTIME));
+        this.deviceID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICEID));
+        this.devicetagID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICETAGID));
+        this.synced = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SYNCED));
+        this.synced_date = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SYNCED_DATE));
+        this.appversion = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_APP_VERSION));
+
+        // TODO:
+
+        return this;
+
+    }
+
+    public FormsContract Hydrate(Cursor cursor) {
+        this._ID = cursor.getString(cursor.getColumnIndex(FormsTable._ID));
+        this._UID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));
+        this.uc = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UC_ID));
+        this.village = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_village_ID));
+        this.formDate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMDATE));
+        this.userr = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_USER));
+        this.istatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS));
+        this.istatus88x = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS88x));
+        this.gpsElev = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSELEV));
+      //  this.f1 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F1));
+
+        this.CRFA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_CRFA));
+        this.studyid = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_studyid));
+        this.crfcstatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfcstatus));
+        this.crfc21 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfc21));
+        this.crfc28 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_crfc28));
+
+      //  this.f2 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F2));
+       // this.f3 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_F3));
+        this.formType = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMTYPE));
+        this.talukdaCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_TALUKA_CODE));
+        this.endtime = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_END_TIME));
+        this.gpsLat = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLAT));
+        this.gpsLng = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSLNG));
+        this.gpsDT = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSDATE));
+        this.gpsAcc = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSACC));
+        this.gpsTime = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_GPSTIME));
+        this.deviceID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICEID));
+        this.devicetagID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICETAGID));
+        this.synced = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SYNCED));
+        this.synced_date = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SYNCED_DATE));
+        this.appversion = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_APP_VERSION));
+
+        // TODO:
+
+        return this;
+
+    }
+
 
     public String getUc() {
         return uc;

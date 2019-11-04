@@ -51,6 +51,9 @@ public class CRFAActivity extends AppCompatActivity {
         bi.cra11.setThreshold(1); //will start working from first character
         bi.cra11.setAdapter(adapter);
 
+        bi.cra11b.setThreshold(1); //will start working from first character
+        bi.cra11b.setAdapter(adapter);
+
 
         setupViews();
 
@@ -181,6 +184,8 @@ public class CRFAActivity extends AppCompatActivity {
 
         CRFA.put("cra11", DiseaseCode.HmDiseaseCode.get(bi.cra11.getText().toString()));
 
+        CRFA.put("cra11b", DiseaseCode.HmDiseaseCode.get(bi.cra11b.getText().toString()));
+
 
         CRFA.put("cra12",
                 bi.cra12a.isChecked() ? "1"
@@ -207,7 +212,8 @@ public class CRFAActivity extends AppCompatActivity {
 
     public void BtnEnd() {
 
-        MainApp.endActivity(this, this);
+
+        this.finish();
     }
 
 

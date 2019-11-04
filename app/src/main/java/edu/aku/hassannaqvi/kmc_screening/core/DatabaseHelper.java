@@ -214,6 +214,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_F1,
                 FormsTable.COLUMN_CRFA,
                 FormsTable.COLUMN_studyid,
+                FormsTable.COLUMN_crfcstatus,
+                FormsTable.COLUMN_crfc21,
+                FormsTable.COLUMN_crfc28,
+
                 FormsTable.COLUMN_F2,
                 FormsTable.COLUMN_F3,
                 FormsTable.COLUMN_FORMTYPE,
@@ -309,7 +313,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-        String whereClause = FormsTable.COLUMN_crfcstatus + "=?";
+        String whereClause ="f_Type='CRFA' and "+ FormsTable.COLUMN_crfcstatus + "=?";
         String[] whereArgs = new String[]{crfstatus};
         String groupBy = null;
         String having = null;
@@ -691,14 +695,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_ISTATUS88x,
                 FormsTable.COLUMN_END_TIME,
-                FormsTable.COLUMN_F1,
+              //  FormsTable.COLUMN_F1,
                 FormsTable.COLUMN_CRFA,
                 FormsTable.COLUMN_studyid,
                 FormsTable.COLUMN_crfcstatus,
-                FormsTable.COLUMN_crfc21,
-                FormsTable.COLUMN_crfc28,
-                FormsTable.COLUMN_F2,
-                FormsTable.COLUMN_F3,
+             //   FormsTable.COLUMN_crfc21,
+             //   FormsTable.COLUMN_crfc28,
+
                 FormsTable.COLUMN_FORMTYPE,
                 FormsTable.COLUMN_TALUKA_CODE,
                 FormsTable.COLUMN_GPSLAT,
@@ -737,7 +740,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c.moveToFirst())
                 do {
                     FormsContract fc = new FormsContract();
-                    allFC.add(fc.Hydrate(c));
+                    allFC.add(fc.HydrateCRFAB(c));
                 } while (c.moveToNext());
 
 
@@ -761,11 +764,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_USER,
                 FormsTable.COLUMN_UC_ID,
+                FormsTable.COLUMN_village_ID,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_ISTATUS88x,
                 FormsTable.COLUMN_END_TIME,
+            //    FormsTable.COLUMN_F1,
+              //  FormsTable.COLUMN_CRFA,
                 FormsTable.COLUMN_studyid,
+             //   FormsTable.COLUMN_crfcstatus,
                 FormsTable.COLUMN_crfc21,
+              //  FormsTable.COLUMN_crfc28,
+
+                FormsTable.COLUMN_FORMTYPE,
+                FormsTable.COLUMN_TALUKA_CODE,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
                 FormsTable.COLUMN_GPSDATE,
@@ -802,7 +813,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c.moveToFirst())
                 do {
                     FormsContract fc = new FormsContract();
-                    allFC.add(fc.Hydrate(c));
+                    allFC.add(fc.HydrateCRF21(c));
                 } while (c.moveToNext());
 
 
@@ -827,11 +838,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_USER,
                 FormsTable.COLUMN_UC_ID,
+                FormsTable.COLUMN_village_ID,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_ISTATUS88x,
                 FormsTable.COLUMN_END_TIME,
+              //  FormsTable.COLUMN_F1,
+                //  FormsTable.COLUMN_CRFA,
                 FormsTable.COLUMN_studyid,
+                //   FormsTable.COLUMN_crfcstatus,
+                //FormsTable.COLUMN_crfc21,
                 FormsTable.COLUMN_crfc28,
+
+                FormsTable.COLUMN_FORMTYPE,
+                FormsTable.COLUMN_TALUKA_CODE,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
                 FormsTable.COLUMN_GPSDATE,
@@ -868,7 +887,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c.moveToFirst())
                 do {
                     FormsContract fc = new FormsContract();
-                    allFC.add(fc.Hydrate(c));
+                    allFC.add(fc.HydrateCRF28(c));
                 } while (c.moveToNext());
 
 
@@ -1060,7 +1079,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_crfcstatus, "1");
 
 // Which row to update, based on the ID
-        String selection = FormsTable.COLUMN_studyid + " =? ";
+        String selection ="f_type='CRFA' and "+ FormsTable.COLUMN_studyid + " =? ";
         String[] selectionArgs = {studyid};
 
         int count = db.update(FormsTable.TABLE_NAME,
@@ -1080,7 +1099,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_crfcstatus, "2");
 
 // Which row to update, based on the ID
-        String selection = FormsTable.COLUMN_studyid + " =? ";
+        String selection = "f_type='CRFA' and "+ FormsTable.COLUMN_studyid + " =? ";
         String[] selectionArgs = {studyid};
 
         int count = db.update(FormsTable.TABLE_NAME,

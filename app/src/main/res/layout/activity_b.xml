@@ -190,7 +190,7 @@
                             android:hint="@string/crb04c"
                             android:inputType="number"
 
-                            app:maxValue="2019"
+                            app:maxValue="2020"
                             app:minValue="2018"
                             app:type="range" />
 
@@ -292,7 +292,7 @@
                         <EditText
                             android:id="@+id/crb07d"
                             style="@style/textInput"
-                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
                             android:hint="@string/crb07d"
                             android:inputType="textPersonName" />
                     </LinearLayout>
@@ -378,7 +378,7 @@
                             android:inputType="number"
                             android:maxLength="1"
 
-                            app:maxValue="5"
+                            app:maxValue="14"
                             app:minValue="0"
                             app:type="range" />
 
@@ -482,6 +482,34 @@
                 </android.support.v7.widget.CardView>
 
 
+                <!--crb12b-->
+
+                <android.support.v7.widget.CardView style="@style/cardView">
+
+
+                    <LinearLayout style="@style/linearlayout_view_wt_bound">
+
+
+
+                        <TextView
+                            style="@style/i_q_textview"
+                            android:text="crb12" />
+
+                        <TextView
+                            style="@style/i_textview"
+                            android:text="@string/crb12" />
+
+
+                        <android.support.v7.widget.AppCompatAutoCompleteTextView
+                            android:id="@+id/crb12b"
+                            style="@style/textInput"
+                            android:hint="@string/crb12"
+                            android:inputType="textPersonName" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
                 <!--crb13-->
                 <android.support.v7.widget.CardView style="@style/cardView">
 
@@ -577,7 +605,7 @@
                             android:hint="@string/crb14c"
                             android:inputType="number"
 
-                            app:maxValue="2019"
+                            app:maxValue="2020"
                             app:minValue="2018"
                             app:type="range" />
 

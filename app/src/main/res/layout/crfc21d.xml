@@ -179,7 +179,7 @@
                 style="@style/i_textview"
                 android:layout_weight="30"
                 android:textColor="@color/black_overlay"
-                android:hint="Month"
+                android:hint="Year"
 
                 android:inputType="number"
 

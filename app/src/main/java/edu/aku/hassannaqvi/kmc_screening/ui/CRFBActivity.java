@@ -59,6 +59,9 @@ public class CRFBActivity extends AppCompatActivity {
         bi.crb12.setThreshold(1); //will start working from first character
         bi.crb12.setAdapter(adapter);
 
+        bi.crb12b.setThreshold(1); //will start working from first character
+        bi.crb12b.setAdapter(adapter);
+
 
         setupViews();
     }
@@ -165,28 +168,29 @@ public class CRFBActivity extends AppCompatActivity {
             Date DischargeDate = null;
             Date PresntDate = null;
             try {
-                DischargeDate = sdf.parse(bi.crb09a.getText()+"/"+ bi.crb09b.getText()+"/" +bi.crb09c.getText());
+                DischargeDate = sdf.parse(bi.crb04a.getText()+"/"+ bi.crb04b.getText()+"/" +bi.crb04c.getText());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
             if (System.currentTimeMillis() < DischargeDate.getTime()) {
 
-                bi.crb09a.setError("Can not be greater then current date");
-                bi.crb09a.requestFocus();
+                bi.crb04a.setError("Can not be greater then current date");
+                bi.crb04a.requestFocus();
                 return;
             }
 
 
 
+
             try {
-                PresntDate = sdf.parse(bi.crb04a.getText()+"/"+ bi.crb04b.getText()+"/" +bi.crb04c.getText());
+                PresntDate = sdf.parse(bi.crb14a.getText()+"/"+ bi.crb14b.getText()+"/" +bi.crb14c.getText());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
             if (PresntDate.getTime() > DischargeDate.getTime()) {
 
-                bi.crb09a.setError("Can not be greater then Presentation  date");
-                bi.crb09a.requestFocus();
+                bi.crb14a.setError("Can not be greater then Presentation  date");
+                bi.crb14a.requestFocus();
                 return;
             }
 
@@ -278,6 +282,7 @@ public class CRFBActivity extends AppCompatActivity {
         CRFA.put("crb11", bi.crb11.getText().toString());
 
         CRFA.put("crb12", DiseaseCode.HmDiseaseCode.get(bi.crb12.getText().toString()));
+        CRFA.put("crb12b", DiseaseCode.HmDiseaseCode.get(bi.crb12b.getText().toString()));
 
 
         CRFA.put("crb13",
@@ -310,7 +315,9 @@ public class CRFBActivity extends AppCompatActivity {
 
     public void BtnEnd() {
 
-        MainApp.endActivity(this, this);
+       this.finish();
+
+        // MainApp.endActivity(this, this);
     }
 
 
