@@ -115,6 +115,7 @@ public class CRFBActivity extends AppCompatActivity {
                             bi.crb07b.setText(crfa.getCra06b());
                             bi.crb07c.setText(crfa.getCra06c());
                             bi.crb07d.setText(crfa.getCra06d());
+                            bi.crb07e.setText(crfa.getCra06e());
 
                             bi.crb08.setText(crfa.getCra07());
 
@@ -187,9 +188,9 @@ public class CRFBActivity extends AppCompatActivity {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            if (DischargeDate.getTime() > PresentationDate.getTime()) {
+            if (DischargeDate.getTime() < PresentationDate.getTime()) {
 
-                bi.crb14a.setError("Can not be greater then Presentation  date");
+                bi.crb14a.setError("Can not be less then Presentation  date");
                 bi.crb14a.requestFocus();
                 return;
             }
@@ -264,6 +265,7 @@ public class CRFBActivity extends AppCompatActivity {
         CRFA.put("crb06", bi.crb06.getText().toString());
 
         CRFA.put("crb07a", bi.crb07a.getText().toString());
+        CRFA.put("crb07e", bi.crb07e.getText().toString());
         CRFA.put("crb07b", bi.crb07b.getText().toString());
         CRFA.put("crb07c", bi.crb07c.getText().toString());
         CRFA.put("crb07d", bi.crb07d.getText().toString());

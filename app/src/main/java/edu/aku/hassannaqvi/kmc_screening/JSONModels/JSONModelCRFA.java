@@ -13,6 +13,8 @@ public class JSONModelCRFA {
     private String cra06b;
     private String cra06c;
     private String cra06d;
+    private String cra06e;
+
     private String cra07;
     private String cra08a;
     private String cra08b;
@@ -106,8 +108,15 @@ public class JSONModelCRFA {
         return cra06d;
     }
 
+    public String getCra06e() {
+        return cra06e;
+    }
+
     public void setCra06d(String cra06d) {
         this.cra06d = cra06d;
+    }
+    public void setCra06e(String cra06e) {
+        this.cra06e = cra06e;
     }
 
     public String getCra07() {

@@ -40,12 +40,14 @@
         <activity android:name=".ui.CRFBActivity" />
         <activity android:name=".ui.CRFAActivity" />
         <activity android:name=".ui.CRFCActivity" />
+        <activity android:name=".ui.DesingActivity" />
 
 
         <activity android:name=".core.AndroidDatabaseManager" />
         <activity android:name=".MainActivity">
 
         </activity>
+
         <activity android:name=".ui.EndingActivity"></activity>
 
         <meta-data

@@ -19,6 +19,7 @@ import edu.aku.hassannaqvi.kmc_screening.other.DiseaseCode;
 import edu.aku.hassannaqvi.kmc_screening.ui.CRFAActivity;
 import edu.aku.hassannaqvi.kmc_screening.ui.CRFBActivity;
 import edu.aku.hassannaqvi.kmc_screening.ui.CRFCActivity;
+import edu.aku.hassannaqvi.kmc_screening.ui.DesingActivity;
 import edu.aku.hassannaqvi.kmc_screening.ui.SyncActivity;
 import edu.aku.hassannaqvi.kmc_screening.util.Util;
 
@@ -331,6 +332,15 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Util.showTagDialog(this);
         }
+    }
+
+    public  void Desing()
+    {
+
+
+        Intent intt =new Intent(this,DesingActivity.class);
+        startActivity(intt);
+
     }
 
 

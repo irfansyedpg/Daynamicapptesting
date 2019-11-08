@@ -127,7 +127,9 @@
 
     <string name="cra02"> OPD Number </string>
 
-    <string name="cra03"> Date of presentation </string>
+
+
+    <string name="cra03"> Date of Visit/Registration </string>
     <string name="cra03a"> day </string>
     <string name="cra03b"> month </string>
     <string name="cra03c"> year </string>
@@ -141,6 +143,7 @@
     <string name="cra06b"> Union Council </string>
     <string name="cra06c"> Village </string>
     <string name="cra06d"> Address/Hint </string>
+    <string name="cra06e"> Tehsil/Taluka </string>
 
     <string name="cra07"> Phone number </string>
 
@@ -174,7 +177,7 @@
     <string name="crb02"> OPD Number </string>
     <string name="crb03"> IPD Number </string>
 
-    <string name="crb04"> Date of presentation </string>
+    <string name="crb04"> Visit/Registration/Admission </string>
     <string name="crb04a"> day </string>
     <string name="crb04b"> month </string>
     <string name="crb04c"> year </string>
@@ -185,6 +188,7 @@
 
     <string name="crb07"> Address </string>
     <string name="crb07a"> District </string>
+    <string name="crb07e"> Tehsil/Taluka </string>
     <string name="crb07b"> Union Council </string>
     <string name="crb07c"> Village </string>
     <string name="crb07d"> Address/Hint </string>
@@ -268,6 +272,15 @@
    <string name="crc11"> Child alive at 28 days </string>
    <string name="crc11a"> Yes </string>
    <string name="crc11b"> No </string>
+
+
+    <!-- Design  -->
+
+    <string name="register">REGISTER</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="signup_login_hint">Already have an account? Sign In</string>
+    <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
 
 
 

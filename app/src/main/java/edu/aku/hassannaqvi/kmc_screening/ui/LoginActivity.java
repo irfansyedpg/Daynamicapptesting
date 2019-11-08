@@ -54,9 +54,8 @@ public class LoginActivity extends AppCompatActivity {
 
         bi = DataBindingUtil.setContentView(this, R.layout.activity_login);
         bi.setCallback(this);
-
         bi.userName.setText("dmu@aku");
-        bi.passowrd.setText("aku?dmu");
+       bi.passowrd.setText("aku?dmu");
         db = new DatabaseHelper(this);
 
         String packageName = getPackageName();

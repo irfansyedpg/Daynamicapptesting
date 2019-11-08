@@ -119,8 +119,9 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/cra02"
                         android:inputType="number"
-                        app:maxValue="99999"
-                        app:minValue="1"
+                        app:maxValue="9"
+                        android:maxLength="1"
+                        app:minValue="0"
                         app:type="range" />
 
                 </LinearLayout>
@@ -258,22 +259,34 @@
                         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
                         />
+
+
+                    <EditText
+                        android:id="@+id/cra06e"
+                        style="@style/textInput"
+                        android:inputType="textPersonName"
+                        android:hint="@string/cra06e"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+                        />
                     <EditText
                         android:id="@+id/cra06b"
                         style="@style/textInput"
                         android:inputType="textPersonName"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,/-,1234567890"
                         android:hint="@string/cra06b" />
                     <EditText
                         android:id="@+id/cra06c"
                         style="@style/textInput"
                         android:inputType="textPersonName"
 
-                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ / -"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,/-"
 
                         android:hint="@string/cra06c" />
                     <EditText
                         android:id="@+id/cra06d"
                         style="@style/textInput"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,/-,,1234567890"
                         android:inputType="textPersonName"
 
 
@@ -322,33 +335,6 @@
                     <TextView
                         style="@style/i_textview"
                         android:text="@string/cra08" />
-
-
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/cra08a"
-                        style="@style/textInput"
-                        android:inputType="number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/cra08a"
-                        android:maxLength="2"
-
-                        app:maxValue="30"
-                        app:minValue="0"
-                        app:type="range" />
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/cra08b"
-                        style="@style/textInput"
-                        android:inputType="number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/cra08b"
-                        android:maxLength="2"
-
-                        app:maxValue="12"
-                        app:minValue="0"
-                        app:type="range" />
-
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/cra08c"
                         style="@style/textInput"
@@ -361,6 +347,34 @@
                         app:maxValue="14"
                         app:minValue="0"
                         app:type="range" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/cra08b"
+                        style="@style/textInput"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/cra08b"
+                        android:maxLength="2"
+
+                        app:maxValue="12"
+                        app:minValue="0"
+                        app:type="range" />
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/cra08a"
+                        style="@style/textInput"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/cra08a"
+                        android:maxLength="2"
+
+                        app:maxValue="30"
+                        app:minValue="0"
+                        app:type="range" />
+
+
+
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -468,13 +482,15 @@
             <android.support.v7.widget.CardView style="@style/cardView">
 
 
-                <LinearLayout style="@style/linearlayout_view_wt_bound">
+                <LinearLayout style="@style/linearlayout_view_wt_bound"
+                    android:tag="-1"
+                    >
 
 
 
                     <TextView
                         style="@style/i_q_textview"
-                        android:text="cra11" />
+                        android:text="cra11b" />
 
                     <TextView
                         style="@style/i_textview"

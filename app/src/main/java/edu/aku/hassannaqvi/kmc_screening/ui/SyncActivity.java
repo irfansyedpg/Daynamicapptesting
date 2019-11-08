@@ -80,14 +80,16 @@ public class SyncActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Toast.makeText(SyncActivity.this, "Start Uploading Data", Toast.LENGTH_SHORT).show();
+
                 syncServerCRFA("CRFA",FormsContract.FormsTable._URL); // sycn A
                 syncServerCRFA("CRFB",FormsContract.FormsTable._URL2); // sycn B
                 syncServerCRFA("CRFC21",FormsContract.FormsTable._URL3); // sycn C
                 syncServerCRFA("CRFC28",FormsContract.FormsTable._URL4); // sycn D
-                syncServerCRFB();
 
-                syncServerCRFC21();
-                syncServerCRFC28();
+                //syncServerCRFB();
+
+               // syncServerCRFC21();
+               // syncServerCRFC28();
 
             }
         });

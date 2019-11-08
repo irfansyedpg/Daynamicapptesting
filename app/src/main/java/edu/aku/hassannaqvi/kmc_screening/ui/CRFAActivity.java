@@ -168,6 +168,7 @@ public class CRFAActivity extends AppCompatActivity {
         CRFA.put("cra06b", bi.cra06b.getText().toString());
         CRFA.put("cra06c", bi.cra06c.getText().toString());
         CRFA.put("cra06d", bi.cra06d.getText().toString());
+        CRFA.put("cra06e", bi.cra06d.getText().toString());
 
         CRFA.put("cra07", bi.cra07.getText().toString());
 

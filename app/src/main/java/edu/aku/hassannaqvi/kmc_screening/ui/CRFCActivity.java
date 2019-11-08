@@ -56,14 +56,14 @@ import static edu.aku.hassannaqvi.kmc_screening.core.MainApp.fc;
 public class CRFCActivity extends AppCompatActivity {
 
     private static final String TAG = "CRFCActivity";
-   public static ActivityCBinding bi;
+    public static ActivityCBinding bi;
     DatabaseHelper db;
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
 
-    public  static boolean days_21;
+    public static boolean days_21;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,46 +73,39 @@ public class CRFCActivity extends AppCompatActivity {
         bi.setCallback(this);
         db = new DatabaseHelper(this);
 
-        days_21=true;
+        days_21 = true;
 
         get_data_recylceview("0");
 
 
-
     }
 
-    public  void day21()
-    {
+    public void day21() {
 
         get_data_recylceview("0");
-        days_21=true;
+        days_21 = true;
 
     }
 
-    public  void day28()
-    {
+    public void day28() {
         get_data_recylceview("1");
 
-        days_21=false;
+        days_21 = false;
 
     }
 
-    public  void get_data_recylceview(String crfstatus)
-    {
+    public void get_data_recylceview(String crfstatus) {
         // list here
-        List<String> list =getdata(crfstatus);
+        List<String> list = getdata(crfstatus);
 
-        if(crfstatus=="0")
-        {
-            bi.btn21.setText("21 Days Follow-Up"+" ("+list.size()+")");
-        }
-        else
-        {
-            bi.btn48.setText("28 Days Follow-Up"+" ("+list.size()+")");
+        if (crfstatus == "0") {
+            bi.btn21.setText("21 Days Follow-Up" + " (" + list.size() + ")");
+        } else {
+            bi.btn48.setText("28 Days Follow-Up" + " (" + list.size() + ")");
         }
 
 
-        if(list == null)
+        if (list == null)
             return;
 
 
@@ -126,21 +119,17 @@ public class CRFCActivity extends AppCompatActivity {
     }
 
 
-
-
-    public  List<String> getdata(String crfstatus)
-    {
-        List<String> lst_string= new ArrayList<String>();
+    public List<String> getdata(String crfstatus) {
+        List<String> lst_string = new ArrayList<String>();
         List<FormsContract> lst = db.getsFormContractCRFC(crfstatus);
-        if (lst!= null) {
+        if (lst != null) {
 
-            for(FormsContract fc: lst)
-            {
+            for (FormsContract fc : lst) {
 
                 JSONModelCRFA crfa = JSONUtils.getModelFromJSON(fc.getCRFA(), JSONModelCRFA.class);
-                String stringg="";
-                stringg=crfa.getCra01()+"-"+crfa.getCra02()+"-"+crfa.getCra04()+"-"+crfa.getCra05()+"-"+
-                        crfa.getCra03a()+"/"+ crfa.getCra03b()+"/" +crfa.getCra03c();
+                String stringg = "";
+                stringg = crfa.getCra01() + "-" + crfa.getCra02() + "-" + crfa.getCra04() + "-" + crfa.getCra05() + "-" +
+                        crfa.getCra03a() + "/" + crfa.getCra03b() + "/" + crfa.getCra03c();
                 lst_string.add(stringg);
 
             }
@@ -171,11 +160,12 @@ public class CRFCActivity extends AppCompatActivity {
 
 }
 
-class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
+class SurveyCompletedCustomAdapter extends RecyclerView.Adapter {
 
     Context mContext;
     List<String> mList;
-    public SurveyCompletedCustomAdapter(Context context, List<String> list){
+
+    public SurveyCompletedCustomAdapter(Context context, List<String> list) {
         mContext = context;
         mList = list;
     }
@@ -194,10 +184,9 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
         final ViewHolder vh = (ViewHolder) holder;
 
         //rejected items..
-       // if(mList.get(position).contains("-00")) {
-         //   vh.itemView.setBackgroundColor(Color.parseColor("#FFB7BC"));
-       // }
-
+        // if(mList.get(position).contains("-00")) {
+        //   vh.itemView.setBackgroundColor(Color.parseColor("#FFB7BC"));
+        // }
 
 
         vh.studyid.setText(mList.get(position).split("-")[0]);
@@ -207,19 +196,18 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
         vh.name.setText(mList.get(position).split("-")[2]);
         vh.fname.setText(mList.get(position).split("-")[3]);
 
-        vh.serial.setText(position+1 +"");
+        vh.serial.setText(position + 1 + "");
 
-        String Pdate=mList.get(position).split("-")[4];
+        String Pdate = mList.get(position).split("-")[4];
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date strDate=null;
+        Date strDate = null;
 
         Calendar c = Calendar.getInstance();
 
 
-
         try {
-             strDate = sdf.parse(Pdate);
+            strDate = sdf.parse(Pdate);
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -228,20 +216,18 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
         c.setTime(strDate);
 
 
-        if(CRFCActivity.days_21==true) {
+        if (CRFCActivity.days_21 == true) {
             vh.txtdate.setText("Date Dute to Notify LHS");
 
 
             c.add(Calendar.DATE, 23);
 
 
-                Pdate = sdf.format(c.getTime());
+            Pdate = sdf.format(c.getTime());
 
             vh.date.setText(Pdate.toString());
 
-        }
-        else
-        {
+        } else {
             vh.txtdate.setText("Date 28-Days Follow up Due");
 
             c.add(Calendar.DATE, 31);
@@ -256,21 +242,18 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
             public void onClick(View view) {
 
 
-                if(CRFCActivity.days_21==true)
-                {
-                    String studyid=vh.studyid.getText().toString();
+                if (CRFCActivity.days_21 == true) {
+                    String studyid = vh.studyid.getText().toString();
 
-                    String datetotnotify=vh.date.getText().toString();
+                    String datetotnotify = vh.date.getText().toString();
 
-                    dialog21days(studyid,datetotnotify);
-                }
-                else
-                {
-                    String studyid=vh.studyid.getText().toString();
+                    dialog21days(studyid, datetotnotify);
+                } else {
+                    String studyid = vh.studyid.getText().toString();
 
-                    String datetotnotify=vh.date.getText().toString();
+                    String datetotnotify = vh.date.getText().toString();
 
-                    dialog28days(studyid,datetotnotify);
+                    dialog28days(studyid, datetotnotify);
                 }
             }
         });
@@ -278,8 +261,7 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
 
     }
 
-    public  void dialog21days(final String studyid, final String datetotnotify)
-    {
+    public void dialog21days(final String studyid, final String datetotnotify) {
         // 21 days
         AlertDialog.Builder b = new AlertDialog.Builder(mContext);
 
@@ -287,15 +269,13 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.crfc21d);
 
-       final EditText day21=dialog.findViewById(R.id.day21);
-       final EditText month21=dialog.findViewById(R.id.month21);
-       final EditText year21=dialog.findViewById(R.id.year21);
-       final EditText lhscode=dialog.findViewById(R.id.lhscode);
+        final EditText day21 = dialog.findViewById(R.id.day21);
+        final EditText month21 = dialog.findViewById(R.id.month21);
+        final EditText year21 = dialog.findViewById(R.id.year21);
+        final EditText lhscode = dialog.findViewById(R.id.lhscode);
 
-       final Button btncancel=dialog.findViewById(R.id.btn_End);
-       final Button btnok=dialog.findViewById(R.id.btn_Continue);
-
-
+        final Button btncancel = dialog.findViewById(R.id.btn_End);
+        final Button btnok = dialog.findViewById(R.id.btn_Continue);
 
 
         btncancel.setOnClickListener(new View.OnClickListener() {
@@ -309,21 +289,97 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
             public void onClick(View v) {
 
 
-               // String studid=vh.
-                if(
+                // String studid=vh.
+                if (
 
-                                day21.getText().length()==0 ||
-                                month21.getText().length()==0 ||
-                                        lhscode.getText().length()==0 ||
-                                year21.getText().length()==0)
-                {
+                        day21.getText().length() == 0 ||
+                                month21.getText().length() == 0 ||
+                                lhscode.getText().length() == 0 ||
+                                year21.getText().length() == 0) {
 
-                    Toast.makeText(mContext,"Please enter the data",Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "Please enter the data", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Date date_master=null;
+
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                Date datetonotify = null;
+
+                Calendar c = Calendar.getInstance();
+
+
+                String currentdate =
+                        day21.getText().toString() + "/"
+                                + month21.getText().toString() + "/"
+                                + year21.getText().toString();
+
+                try {
+
+                    date_master= sdf.parse(datetotnotify);
+                    datetonotify = sdf.parse(datetotnotify);
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                c.setTime(datetonotify);
+
+
+                c.add(Calendar.DATE, 2);
+
+                String bigdata = sdf.format(c.getTime());
+
+                c.add(Calendar.DATE, -4);
+
+                String smalldate = sdf.format(c.getTime());
+
+
+                c.add(Calendar.DATE, 1);
+                String small2 = sdf.format(c.getTime());
+
+
+                c.add(Calendar.DATE, 2);
+                String bigdata2 = sdf.format(c.getTime());
+
+
+                Date DateSmall = null;
+                Date Datebig = null;
+
+                Date DateSmall2 = null;
+                Date Datebig2 = null;
+                Date dateCurrent = null;
+
+
+                try {
+                    DateSmall = sdf.parse(smalldate);
+                    Datebig = sdf.parse(bigdata);
+
+                    DateSmall2 = sdf.parse(small2);
+                    Datebig2 = sdf.parse(bigdata2);
+
+
+                    dateCurrent = sdf.parse(currentdate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
+                if (dateCurrent.getTime() == DateSmall.getTime() || dateCurrent.getTime() == Datebig.getTime()
+
+                        || dateCurrent.getTime() == date_master.getTime()
+
+                        || dateCurrent.getTime() == DateSmall2.getTime()
+                        || dateCurrent.getTime() == Datebig2.getTime()
+
+                ) {
+                } else {
+                    Toast.makeText(mContext, "should be equals to  Notificaiton Date", Toast.LENGTH_LONG).show();
                     return;
                 }
 
+
                 fc = new FormsContract();
-                SharedPreferences sharedPref =mContext. getSharedPreferences("tagName", MODE_PRIVATE);
+                SharedPreferences sharedPref = mContext.getSharedPreferences("tagName", MODE_PRIVATE);
                 fc.setTagID(sharedPref.getString("tagName", null));
                 fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
                 fc.setDeviceID(MainApp.deviceId);
@@ -356,14 +412,13 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
                         Toast.makeText(mContext, "Updated", Toast.LENGTH_SHORT).show();
 
 
-
                         CRFCActivity.bi.btn21.performClick();
 
                         dialog.dismiss();
 
                     } else {
-                       Toast.makeText(mContext, "Error in updating db!!", Toast.LENGTH_SHORT).show();
-                   }
+                        Toast.makeText(mContext, "Error in updating db!!", Toast.LENGTH_SHORT).show();
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -378,8 +433,6 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
 
 
     private boolean UpdateDBCRF21(String studyid) {
-
-
 
 
         DatabaseHelper db = new DatabaseHelper(mContext);
@@ -442,8 +495,7 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
     }
 
 
-    public  void dialog28days(final String studyid, final String date28days)
-    {
+    public void dialog28days(final String studyid, final String date28days) {
         // 28 days
         AlertDialog.Builder b = new AlertDialog.Builder(mContext);
 
@@ -451,19 +503,19 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.crfc28d);
 
-        final RadioButton crfc12a,crfc12b,crfc12c,crfc12d,crfc13a,crfc13b;
+        final RadioButton crfc12a, crfc12b, crfc12c, crfc12d, crfc13a, crfc13b;
 
-        crfc12a=dialog.findViewById(R.id.crfc12a);
-        crfc12b=dialog.findViewById(R.id.crfc12b);
-        crfc12c=dialog.findViewById(R.id.crfc12c);
-        crfc12d=dialog.findViewById(R.id.crfc12d);
+        crfc12a = dialog.findViewById(R.id.crfc12a);
+        crfc12b = dialog.findViewById(R.id.crfc12b);
+        crfc12c = dialog.findViewById(R.id.crfc12c);
+        crfc12d = dialog.findViewById(R.id.crfc12d);
 
-        crfc13a=dialog.findViewById(R.id.crfc13a);
-        crfc13b=dialog.findViewById(R.id.crfc13b);
+        crfc13a = dialog.findViewById(R.id.crfc13a);
+        crfc13b = dialog.findViewById(R.id.crfc13b);
 
 
-        Button btncancel=dialog.findViewById(R.id.btn_End);
-        Button btnok=dialog.findViewById(R.id.btn_Continue);
+        Button btncancel = dialog.findViewById(R.id.btn_End);
+        Button btnok = dialog.findViewById(R.id.btn_Continue);
 
 
         btncancel.setOnClickListener(new View.OnClickListener() {
@@ -479,31 +531,29 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
 
 
                 // String studid=vh.
-                if(
-                       !crfc12a.isChecked() &
-                               !crfc12b.isChecked() &
-                               !crfc12c.isChecked() &
-                               !crfc12d.isChecked()
-                        )
-                {
+                if (
+                        !crfc12a.isChecked() &
+                                !crfc12b.isChecked() &
+                                !crfc12c.isChecked() &
+                                !crfc12d.isChecked()
+                ) {
 
-                    Toast.makeText(mContext,"Please select  the Discharge",Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "Please select  the Discharge", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                if(
+                if (
 
-                                !crfc13a.isChecked() &
-                                !crfc13b.isChecked() )
-                {
+                        !crfc13a.isChecked() &
+                                !crfc13b.isChecked()) {
 
-                    Toast.makeText(mContext,"Please select status ",Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext, "Please select status ", Toast.LENGTH_LONG).show();
                     return;
                 }
 
 
                 fc = new FormsContract();
-                SharedPreferences sharedPref =mContext. getSharedPreferences("tagName", MODE_PRIVATE);
+                SharedPreferences sharedPref = mContext.getSharedPreferences("tagName", MODE_PRIVATE);
                 fc.setTagID(sharedPref.getString("tagName", null));
                 fc.setFormDate((DateFormat.format("dd-MM-yyyy HH:mm", new Date())).toString());
                 fc.setDeviceID(MainApp.deviceId);
@@ -521,40 +571,27 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
                     JSONObject CRFC = new JSONObject();
 
 
-                    String crf12="0";
-                    if(crfc12a.isChecked())
-                    {
-                        crf12="1";
-                    }
-                    else if(crfc12b.isChecked())
-                    {
-                        crf12="2";
-                    }
-                    else if(crfc12c.isChecked())
-                    {
-                        crf12="3";
-                    }
-                    else if(crfc12d.isChecked())
-                    {
-                        crf12="4";
-                    }
-                    else
-
-                    {  crf12="0";
+                    String crf12 = "0";
+                    if (crfc12a.isChecked()) {
+                        crf12 = "1";
+                    } else if (crfc12b.isChecked()) {
+                        crf12 = "2";
+                    } else if (crfc12c.isChecked()) {
+                        crf12 = "3";
+                    } else if (crfc12d.isChecked()) {
+                        crf12 = "4";
+                    } else {
+                        crf12 = "0";
 
                     }
 
 
-                    String crf13="0";
-                    if(crfc13a.isChecked())
-                    {
-                        crf13="1";
+                    String crf13 = "0";
+                    if (crfc13a.isChecked()) {
+                        crf13 = "1";
+                    } else if (crfc13b.isChecked()) {
+                        crf13 = "2";
                     }
-                    else if(crfc13b.isChecked())
-                    {
-                        crf13="2";
-                    }
-
 
 
                     CRFC.put("crc12", crf12);
@@ -562,7 +599,6 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
                     CRFC.put("crc11", date28days);
 
                     fc.setFormType("CRFC28");
-
 
 
                     fc.setCRFA(String.valueOf(CRFC));
@@ -588,13 +624,14 @@ class  SurveyCompletedCustomAdapter extends RecyclerView.Adapter{
         dialog.show();
 
     }
+
     @Override
     public int getItemCount() {
         return mList.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView studyid, serial,name,fname,date,txtdate,opdnum;
+        public TextView studyid, serial, name, fname, date, txtdate, opdnum;
 
         public ViewHolder(View v) {
             super(v);

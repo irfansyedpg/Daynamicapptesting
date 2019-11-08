@@ -816,7 +816,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c.moveToFirst())
                 do {
                     FormsContract fc = new FormsContract();
-                    allFC.add(fc.HydrateCRF21(c));
+                    allFC.add(fc.Hydrate(c));
                 } while (c.moveToNext());
 
 
@@ -890,7 +890,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c.moveToFirst())
                 do {
                     FormsContract fc = new FormsContract();
-                    allFC.add(fc.HydrateCRF28(c));
+                    allFC.add(fc.Hydrate(c));
                 } while (c.moveToNext());
 
 
