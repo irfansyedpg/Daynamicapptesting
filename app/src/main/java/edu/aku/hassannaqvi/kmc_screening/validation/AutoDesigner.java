@@ -190,9 +190,10 @@ public abstract class AutoDesigner {
 
             if (view instanceof CardView) {
                 if (!EmptyCheckingContainer(context, (ViewGroup) view)) {
-                    return false;
+                   return false;
                 }
-            } else if (view instanceof TextView) {
+            }
+            else if (view instanceof TextView) {
                 TextView tx = (TextView) view;
                 tx.setTextSize(Qlabel);
 

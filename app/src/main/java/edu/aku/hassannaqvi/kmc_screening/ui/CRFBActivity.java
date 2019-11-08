@@ -31,6 +31,7 @@ import edu.aku.hassannaqvi.kmc_screening.core.MainApp;
 import edu.aku.hassannaqvi.kmc_screening.databinding.ActivityBBinding;
 import edu.aku.hassannaqvi.kmc_screening.other.DiseaseCode;
 import edu.aku.hassannaqvi.kmc_screening.util.Util;
+import edu.aku.hassannaqvi.kmc_screening.validation.AutoDesigner;
 import edu.aku.hassannaqvi.kmc_screening.validation.ValidatorClass;
 
 import static edu.aku.hassannaqvi.kmc_screening.core.MainApp.fc;
@@ -64,6 +65,8 @@ public class CRFBActivity extends AppCompatActivity {
 
 
         setupViews();
+
+        AutoDesigner.EmptyCheckingContainer(this, bi.GrpCRFB);
     }
 
     private void setupViews() {

@@ -82,6 +82,8 @@ public class DesingActivity extends AppCompatActivity implements CompoundButton.
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+
+        // label quesitons
         if(buttonView==bi.rbSmall && bi.rbSmall.isChecked())
         {
 
@@ -123,8 +125,9 @@ public class DesingActivity extends AppCompatActivity implements CompoundButton.
             bi.labqexp.setText("Question Lable Size is Extra Large");
         }
 
-        // txt label ends
 
+
+        // txt label ends
 
         if(buttonView==bi.rbRbSmall && bi.rbRbSmall.isChecked())
         {
@@ -177,52 +180,6 @@ public class DesingActivity extends AppCompatActivity implements CompoundButton.
             bi.cbexp.setTextSize(16);
             bi.cbexp.setText("Checkbox Lable Size is Small");
 
-            editor.putInt("rbtxt", 16);
-        }
-        else if(buttonView==bi.rbCbLarage && bi.rbCbLarage.isChecked())
-        {
-
-            bi.cbexp.setTextSize(24);
-
-            bi.cbexp.setText("Checkbox Lable Size is Large");
-            editor.putInt("rbtxt", 24);
-        }
-        else if(buttonView==bi.rbCbNormal && bi.rbCbNormal.isChecked())
-        {
-
-            bi.cbexp.setTextSize(20);
-
-            editor.putInt("rbtxt", 20);
-
-
-
-            bi.cbexp.setText("Checkbox Lable Size is Normal");
-        }
-
-        else if(buttonView==bi.rbCbXlarage && bi.rbCbXlarage.isChecked())
-        {
-
-
-            bi.cbexp.setTextSize(26);
-
-            editor.putInt("rbtxt", 26);
-
-
-
-            bi.cbexp.setText("Checkbox Lable Size is Extra Large");
-        }
-
-// txt label ends
-
-
-
-
-        if(buttonView==bi.rbCbSmall && bi.rbCbSmall.isChecked())
-        {
-
-            bi.cbexp.setTextSize(16);
-            bi.cbexp.setText("Checkbox Lable Size is Small");
-
             editor.putInt("cbtxt", 16);
         }
         else if(buttonView==bi.rbCbLarage && bi.rbCbLarage.isChecked())
@@ -259,6 +216,9 @@ public class DesingActivity extends AppCompatActivity implements CompoundButton.
         }
 
 // txt label ends
+
+
+
 
 
 
