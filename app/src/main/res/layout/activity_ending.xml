@@ -9,7 +9,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.kmc_screening.ui.EndingActivity" />
+            type="edu.aku.hassannaqvi.templete.ui.EndingActivity" />
     </data>
 
     <LinearLayout
