@@ -7,7 +7,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.templete.MainActivity" />
+            type="edu.aku.hassannaqvi.template.MainActivity" />
     </data>
 
     <LinearLayout

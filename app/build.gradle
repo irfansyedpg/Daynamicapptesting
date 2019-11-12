@@ -14,7 +14,7 @@ android {
         versionProps.store(versionPropsFile.newWriter(), null)
 
         defaultConfig {
-            applicationId "edu.aku.hassannaqvi.templete"
+            applicationId "edu.aku.hassannaqvi.template"
             minSdkVersion 21
             targetSdkVersion 28
             versionCode code

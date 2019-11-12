@@ -11,7 +11,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.templete.ui.CRFAActivity" />
+            type="edu.aku.hassannaqvi.template.ui.CRFAActivity" />
     </data>
 
 
@@ -24,7 +24,6 @@
             android:id="@+id/GrpCRFA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:orientation="vertical">
 
 
@@ -43,20 +42,7 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
-            <!--cra1-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
 
-
-
-
-
-                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
-            </LinearLayout>
 
             <!--cra2-->
             <android.support.v7.widget.CardView style="@style/cardView">
@@ -81,7 +67,7 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/cra01"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -114,9 +100,7 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/cra02"
-                        style="@style/textInput"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/textInputNumber"
                         android:hint="@string/cra02"
                         android:inputType="number"
                         app:maxValue="9"
@@ -144,7 +128,7 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/cra03a"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/cra03a"
@@ -155,7 +139,7 @@
                         app:type="range" />
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/cra03b"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -167,7 +151,7 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/cra03c"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -199,7 +183,7 @@
 
                     <EditText
                         android:id="@+id/cra04"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
 
                         android:hint="@string/cra04"
                         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ" />
@@ -225,11 +209,9 @@
 
                     <EditText
                         android:id="@+id/cra05"
-                        style="@style/textInput"
-                        android:inputType="textPersonName"
+                        style="@style/textInputNumber"
                         android:hint="@string/cra05"
 
-                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -253,17 +235,17 @@
 
                     <EditText
                         android:id="@+id/cra06a"
-                        style="@style/textInput"
-                        android:inputType="textPersonName"
+                        style="@style/textInputNumber"
+
                         android:hint="@string/cra06a"
-                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 
                         />
 
 
                     <EditText
                         android:id="@+id/cra06e"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:inputType="textPersonName"
                         android:hint="@string/cra06e"
                         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -271,13 +253,13 @@
                         />
                     <EditText
                         android:id="@+id/cra06b"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:inputType="textPersonName"
                         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,/-,1234567890"
                         android:hint="@string/cra06b" />
                     <EditText
                         android:id="@+id/cra06c"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:inputType="textPersonName"
 
                         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,/-"
@@ -285,7 +267,7 @@
                         android:hint="@string/cra06c" />
                     <EditText
                         android:id="@+id/cra06d"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,/-,,1234567890"
                         android:inputType="textPersonName"
 
@@ -313,7 +295,7 @@
 
                     <EditText
                         android:id="@+id/cra07"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:inputType="number"
                         android:maxLength="11"
                         android:hint="@string/cra07" />
@@ -337,7 +319,7 @@
                         android:text="@string/cra08" />
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/cra08c"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -350,7 +332,7 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/cra08b"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -362,7 +344,7 @@
                         app:type="range" />
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/cra08a"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -440,7 +422,7 @@
 
                     <EditText
                         android:id="@+id/cra10"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:hint="@string/cra10"
 
                         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -469,7 +451,7 @@
 
                     <android.support.v7.widget.AppCompatAutoCompleteTextView
                         android:id="@+id/cra11"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:hint="@string/cra11"
                         android:inputType="textPersonName" />
 
@@ -499,7 +481,7 @@
 
                     <android.support.v7.widget.AppCompatAutoCompleteTextView
                         android:id="@+id/cra11b"
-                        style="@style/textInput"
+                        style="@style/textInputNumber"
                         android:hint="@string/cra11"
                         android:inputType="textPersonName" />
 
