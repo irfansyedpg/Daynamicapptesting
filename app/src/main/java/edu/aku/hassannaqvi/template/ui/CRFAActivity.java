@@ -43,43 +43,15 @@ public class CRFAActivity extends AppCompatActivity {
         bi.setCallback(this);
 
 
-
-        setupViews();
-
-        setDesing();
-
-
-
         db = new DatabaseHelper(this);
-        int study_id=Integer.parseInt(db.getsFormcount());
-        study_id=study_id+1;
-        if(study_id<10)
-        {
-            bi.cra01.setText("0"+study_id+"");
-        }
 
-        else
-        {
-            bi.cra01.setText("00"+study_id+"");
-        }
-        bi.cra01.setEnabled(false);
-
+        UIirfan.findViews( bi.GrpCRFA,this); // for changing UI
     }
 
-    private void setupViews() {
 
-    }
 
     public void BtnContinue() {
         if (formValidation()) {
-
-
-
-
-
-
-
-
 
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Date strDate = null;
@@ -112,9 +84,6 @@ public class CRFAActivity extends AppCompatActivity {
 
     private boolean UpdateDB() {
 
-        DatabaseHelper db = new DatabaseHelper(this);
-
-        // 2. insert form
         Long rowId;
         rowId = db.addForm(fc);
         if (rowId > 0) {
@@ -175,11 +144,6 @@ public class CRFAActivity extends AppCompatActivity {
 
         CRFA.put("cra10", bi.cra10.getText().toString());
 
-     //   CRFA.put("cra11", DiseaseCode.HmDiseaseCode.get(bi.cra11.getText().toString()));
-
-      //  CRFA.put("cra11b", DiseaseCode.HmDiseaseCode.get(bi.cra11b.getText().toString()));
-
-
         CRFA.put("cra12",
                 bi.cra12a.isChecked() ? "1"
                         : bi.cra12b.isChecked() ? "2"
@@ -202,15 +166,6 @@ public class CRFAActivity extends AppCompatActivity {
 
     }
 
-    private  void  setDesing()
-    {
-
-
-        UIirfan.findViews( bi.GrpCRFA,this);
-
-
-
-    }
 
 
     public void BtnEnd() {
